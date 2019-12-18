@@ -1,0 +1,6 @@
+variables.conf
+remote-state.tf
+web-file-list.tf
+/.terraform/*
+/temp/*
+/cert/*

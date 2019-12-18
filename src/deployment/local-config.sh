@@ -1,0 +1,3 @@
+export ARM_USE_MSI=true
+export ARM_SUBSCRIPTION_ID=e03d0723-1fae-4bb8-8e28-41ec7e1185f5
+export ARM_TENANT_ID=0f1a53c8-1135-457a-bcdb-d58abc87e4b7

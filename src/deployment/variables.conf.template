@@ -1,0 +1,10 @@
+service_principal_client_id=<name from running az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/SUBSCRIPTION_ID".>
+service_principal_client_secret=<password from running az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/SUBSCRIPTION_ID">
+azure_ad_tenant_id=<tenant for the created service principal>
+azure_subscription_id=<subscription to hold the generated VM>
+resource_group_location=centralus<to get other names, login, then use az account list-locations | jq '[.[] | {name: .name, displayName: .displayName}]'
+base_name=<base name to be used for created resources>
+domain_name=<domain name set for the certificate used on this application>
+storage_access_key=[access key for the Terraform state storage account]
+aad_app_client_id=FILL IN AFTER CREATING AAD FUNC APPLICATION
+aad_app_client_password=FILL IN AFTER CREATING AAD FUNC APPLICATION

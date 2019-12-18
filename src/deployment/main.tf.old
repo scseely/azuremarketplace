@@ -1,0 +1,222 @@
+# Configure the provider
+provider "azurerm" {
+    version = "~>1.35"
+}
+
+provider "azuread" {
+  version = "~>0.6.0"
+}
+
+provider "random" {
+  version = "~>2.2.0"
+}
+
+# Create a new resource group
+resource "azurerm_resource_group" "rg" {
+    name     = "${var.base_name}rg"
+    location = "${var.location}"
+}
+
+resource "azurerm_storage_account" "az_backend" {
+  name                     = "${var.base_name}stg"
+  resource_group_name      = "${azurerm_resource_group.rg.name}"
+  location                 = "${azurerm_resource_group.rg.location}"
+  account_tier             = "standard"
+  account_replication_type = "RAGRS"
+  account_kind             = "StorageV2"
+  tags = {
+    env = "prod"
+  }
+}
+
+resource "azurerm_storage_container" "web" {
+  name                  = "web"
+  storage_account_name  = "${azurerm_storage_account.az_backend.name}"
+  container_access_type = "private"
+  lifecycle {
+    prevent_destroy = false
+  }
+  provisioner "local-exec" {
+    command = "az storage blob upload-batch --destination ${azurerm_storage_container.web.name} --source ../portal --account-name ${azurerm_storage_account.az_backend.name} --type block"
+  }
+}
+
+
+
+resource "azurerm_cdn_profile" "cdn" {
+  name                = "${var.base_name}cdn"
+  location            = "${azurerm_resource_group.rg.location}"
+  resource_group_name = "${azurerm_resource_group.rg.name}"
+  sku                 = "Standard_Microsoft"
+
+  tags = {
+    env = "prod"
+  }
+}
+
+
+#Azure Functions setup
+resource "azurerm_application_insights" "app_insights" {
+  name                = "${var.base_name}ai"
+  location            = "${azurerm_resource_group.rg.location}"
+  resource_group_name = "${azurerm_resource_group.rg.name}"
+  application_type    = "web"
+}
+
+#add App Service Plan
+resource "azurerm_app_service_plan" "app_service_plan" {
+  name                = "${var.base_name}appserv"
+  location            = "${azurerm_resource_group.rg.location}"
+  resource_group_name = "${azurerm_resource_group.rg.name}"
+  kind                = "FunctionApp"
+  reserved            = true
+  sku {
+    tier = "Basic"
+    size = "B1"
+  }
+}
+
+# add the azure ad application
+#resource "azuread_application" "adapp" {
+#  name                       = "${var.base_name} Marketplace Application"
+#  homepage                   = "https://www.${var.domain_name}/web/index.html"
+#  identifier_uris            = ["https://${var.domain_name}"]
+#  reply_urls                 = ["https://${var.domain_name}/.auth/login/aad/callback",
+#                                "https://www.${var.domain_name}/web/index.html",
+#                                "https://${var.base_name}func.azurewebsites.net/.auth/login/aad/callback"]
+#  available_to_other_tenants = true
+#  oauth2_allow_implicit_flow = true
+#  type                       = "webapp/api"
+#  required_resource_access {
+#    resource_access {
+#        id    = "${random_uuid.aad_appid.result}"
+#        type  = "Scope"
+#      }
+#    resource_app_id = "00000002-0000-0000-c000-000000000000"
+#  }
+
+  #app_role {
+  #  allowed_member_types  = ["User", "Application"]
+  #  description           = "Application or users can read information"
+  #  display_name          = "Access"
+  #  is_enabled            = true
+  #  value                 = "Access info"
+  #}
+#}
+
+#resource "azuread_service_principal" "sp" {
+#  application_id                = "${azuread_application.adapp.application_id}"
+#  app_role_assignment_required  = false
+#}
+
+#resource "random_string" "password" {
+#  length        = 32
+#  special       = true
+#}
+
+#resource "random_uuid" "aad_appid" {
+#}
+
+#resource "azuread_application_password" "adapp" {
+#  application_object_id = "${azuread_application.adapp.id}"
+#  value                 = "${random_string.password.result}"
+  # have the password expire in 2 years. (365 day/year * 24 hour/day * 2 year)
+#  end_date              = "${timeadd(timestamp(), "17520h")}"
+#}
+
+resource "azurerm_application_insights" "ai" {
+  name                = "${var.base_name}ai"
+  location            = "${azurerm_resource_group.rg.location}"
+  resource_group_name = "${azurerm_resource_group.rg.name}"
+  application_type    = "web"
+}
+
+#add AZ Functions
+resource "azurerm_function_app" "apis" {
+  name                      = "${var.base_name}func"
+  location                  = "${azurerm_resource_group.rg.location}"
+  resource_group_name       = "${azurerm_resource_group.rg.name}"
+  app_service_plan_id       = "${azurerm_app_service_plan.app_service_plan.id}"
+  storage_connection_string = "${azurerm_storage_account.az_backend.primary_connection_string}"
+  https_only                = false
+  version                   = "~2"
+  app_settings = {
+    APPINSIGHTS_INSTRUMENTATIONKEY  = "${azurerm_application_insights.ai.instrumentation_key}"
+    BUILD_FLAGS                     = "UseExpressBuild"
+    ENABLE_ORYX_BUILD               = "true"
+    FUNCTIONS_EXTENSION_VERSION     = "~2"
+    FUNCTIONS_WORKER_RUNTIME        = "python"
+    SCM_DO_BUILD_DURING_DEPLOYMENT  = "1"
+    WEBSITE_HTTPLOGGING_RETENTION_DAYS = "7"
+    WEBSITE_NODE_DEFAULT_VERSION    = "10.14.1"
+    XDG_CACHE_HOME                  = "/tmp/.cache"
+
+    USE_SAAS_MOCK_API               = "true"
+    APP_SERVICE_URL                 = "https://${var.domain_name}"
+  }
+  site_config {
+    cors { 
+      allowed_origins     = ["https://www.${var.domain_name}"]
+      support_credentials = "false"
+    }
+    linux_fx_version  = "DOCKER|mcr.microsoft.com/azure-functions/python:2.0-python3.6-appservice"
+  }
+
+#  auth_settings {
+#    default_provider                = "AzureActiveDirectory"
+#    enabled                         = "true"
+#    allowed_external_redirect_urls  = ["http://www.${var.domain_name}/web/index.html",
+#                                        "http://localhost:63342/azuremarketplace/src/portal/index.html" ]
+#    runtime_version                 = "1.0.0"
+#    token_store_enabled             = "true"
+#    unauthenticated_client_action   = "RedirectToLoginPage"
+#    active_directory {
+#      client_id     = "${azuread_application.adapp.application_id}"
+#      client_secret = "${azuread_application_password.adapp.value}"
+#    }
+#  }
+}
+
+# If this block errors, you've already registered the Azure CDN Service Principal
+# in your AAD. Just comment out the block in that case. The GUID here is a 
+# "well known" ID.
+#resource "azuread_service_principal" "azurecdn" {
+#  application_id = "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8"
+#}
+
+# Add azure Key Vault
+#resource "azurerm_key_vault" "test" {
+#  name                        = "testvault"
+#  location                    = "${azurerm_resource_group.test.location}"
+#  resource_group_name         = "${azurerm_resource_group.test.name}"
+#  enabled_for_disk_encryption = true
+#  tenant_id                   = "d6e396d0-5584-41dc-9fc0-268df99bc610"
+
+#  sku_name = "standard"
+
+#  access_policy {
+#    tenant_id = "${var.keyvault_tenant_id}"
+#    object_id = "d746815a-0433-4a21-b95d-fc437d2d475b"
+#
+#    key_permissions = [
+#      "get",
+#    ]
+
+#    secret_permissions = [
+#      "get",
+#    ]
+
+#    storage_permissions = [
+#      "get",
+#    ]
+#  }
+
+#  network_acls {
+#    default_action = "Deny"
+#    bypass         = "AzureServices"
+#  }
+
+#  tags = {
+#    environment = "Production"
+#  }
+#}

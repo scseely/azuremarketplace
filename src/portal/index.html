@@ -1,0 +1,98 @@
+<html lang="en">
+    <head>
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+        <link rel="stylesheet" href="css/site.css"/>
+        <script src="scripts/settings.js"></script>
+        <script src="scripts/jquery.js"></script>
+        <script src="scripts/auth.js"></script>
+        <script src="scripts/index.js"></script>
+        <script src="scripts/AzureMarketplace.js"></script>
+        <script src="scripts/node_modules/applicationinsights-js/dist/ai.js"></script>
+        <script type="text/javascript">
+            var snippet = {
+                    instrumentationKey: window.instrumentationKey
+                }
+            };
+            var init = new Microsoft.ApplicationInsights.Initialization(snippet);
+            var appInsights = init.loadAppInsights();
+            appInsights.trackPageView();
+        </script>
+        <title>Fabrikam SaaS Portal</title>
+    </head>
+    <body>
+        <div id="noAuth" class="show">
+            This is no-auth
+            <br/>
+            <button onclick="login();">Log in</button>
+        </div>
+        <div id="loading" class="hide">
+            Loading ...
+        </div>
+        <div id="auth" class="hide">
+            Thank you for requesting a new subscription for the Fabrikam SaaS application. We see you are subscribing
+            with the following details:
+            <table>
+                <tr>
+                    <td>Subscriber:</td>
+                    <td id="subscriberName"></td>
+                </tr>
+                <tr>
+                    <td>Subscriber email:</td>
+                    <td id="subscriberEmail"></td>
+                </tr>
+                <tr>
+                    <td>Subscriber tenant:</td>
+                    <td id="subscriberTenant"></td>
+                </tr>
+                <tr>
+                    <td>Subscription ID:</td>
+                    <td id="subscriptionId"></td>
+                </tr>
+                <tr>
+                    <td>Subscription Name:</td>
+                    <td id="subscriptionName"></td>
+                </tr>
+                <tr>
+                    <td>Offer ID:</td>
+                    <td id="offerId"></td>
+                </tr>
+                <tr>
+                    <td>Plan ID:</td>
+                    <td id="planId"></td>
+                </tr>
+            </table>
+            <br/>
+            <div id="preActivation" class="show">
+                <p>We need to collect a few more things before continuing.
+                </p>
+                <table>
+                    <tr>
+                        <td><label for="preferredName">What is your name?</label></td>
+                        <td><input type="text" id="preferredName"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="quest">What is your quest?</label></td>
+                        <td><input type="text" id="quest"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="favoriteColor">What is your favorite color?</label></td>
+                        <td><input type="text" id="favoriteColor"></td>
+                    </tr>
+                </table>
+                Click Activate to continue. <button onclick="activateSubscription();">Activate</button>
+                <br/>
+            </div>
+            <div id="postActivation" class="hide">
+                <p>Your subscription is activated. Do you wish to change your plan?</p>
+                <label for="selectPlan">Select a plan</label>
+                <select id="selectPlan"></select>
+                <br/>
+                Click Update to change the subscription plan. <button onclick="updateSubscription();">Update</button>
+                <br/>
+            </div>
+            <button onclick="logout();">Log out</button>
+        </div>
+        <br/>
+        <button onclick="clearStorage();">Clear Storage</button>
+    </body>
+</html>

@@ -1,0 +1,2136 @@
+%!PS-Adobe-3.0
+%%Creator: graphviz version 2.40.1 (20161225.0304)
+%%Title: %3
+%%Pages: (atend)
+%%BoundingBox: (atend)
+%%EndComments
+save
+%%BeginProlog
+/DotDict 200 dict def
+DotDict begin
+
+/setupLatin1 {
+mark
+/EncodingVector 256 array def
+ EncodingVector 0
+
+ISOLatin1Encoding 0 255 getinterval putinterval
+EncodingVector 45 /hyphen put
+
+% Set up ISO Latin 1 character encoding
+/starnetISO {
+        dup dup findfont dup length dict begin
+        { 1 index /FID ne { def }{ pop pop } ifelse
+        } forall
+        /Encoding EncodingVector def
+        currentdict end definefont
+} def
+/Times-Roman starnetISO def
+/Times-Italic starnetISO def
+/Times-Bold starnetISO def
+/Times-BoldItalic starnetISO def
+/Helvetica starnetISO def
+/Helvetica-Oblique starnetISO def
+/Helvetica-Bold starnetISO def
+/Helvetica-BoldOblique starnetISO def
+/Courier starnetISO def
+/Courier-Oblique starnetISO def
+/Courier-Bold starnetISO def
+/Courier-BoldOblique starnetISO def
+cleartomark
+} bind def
+
+%%BeginResource: procset graphviz 0 0
+/coord-font-family /Times-Roman def
+/default-font-family /Times-Roman def
+/coordfont coord-font-family findfont 8 scalefont def
+
+/InvScaleFactor 1.0 def
+/set_scale {
+       dup 1 exch div /InvScaleFactor exch def
+       scale
+} bind def
+
+% styles
+/solid { [] 0 setdash } bind def
+/dashed { [9 InvScaleFactor mul dup ] 0 setdash } bind def
+/dotted { [1 InvScaleFactor mul 6 InvScaleFactor mul] 0 setdash } bind def
+/invis {/fill {newpath} def /stroke {newpath} def /show {pop newpath} def} bind def
+/bold { 2 setlinewidth } bind def
+/filled { } bind def
+/unfilled { } bind def
+/rounded { } bind def
+/diagonals { } bind def
+/tapered { } bind def
+
+% hooks for setting color 
+/nodecolor { sethsbcolor } bind def
+/edgecolor { sethsbcolor } bind def
+/graphcolor { sethsbcolor } bind def
+/nopcolor {pop pop pop} bind def
+
+/beginpage {	% i j npages
+	/npages exch def
+	/j exch def
+	/i exch def
+	/str 10 string def
+	npages 1 gt {
+		gsave
+			coordfont setfont
+			0 0 moveto
+			(\() show i str cvs show (,) show j str cvs show (\)) show
+		grestore
+	} if
+} bind def
+
+/set_font {
+	findfont exch
+	scalefont setfont
+} def
+
+% draw text fitted to its expected width
+/alignedtext {			% width text
+	/text exch def
+	/width exch def
+	gsave
+		width 0 gt {
+			[] 0 setdash
+			text stringwidth pop width exch sub text length div 0 text ashow
+		} if
+	grestore
+} def
+
+/boxprim {				% xcorner ycorner xsize ysize
+		4 2 roll
+		moveto
+		2 copy
+		exch 0 rlineto
+		0 exch rlineto
+		pop neg 0 rlineto
+		closepath
+} bind def
+
+/ellipse_path {
+	/ry exch def
+	/rx exch def
+	/y exch def
+	/x exch def
+	matrix currentmatrix
+	newpath
+	x y translate
+	rx ry scale
+	0 0 1 0 360 arc
+	setmatrix
+} bind def
+
+/endpage { showpage } bind def
+/showpage { } def
+
+/layercolorseq
+	[	% layer color sequence - darkest to lightest
+		[0 0 0]
+		[.2 .8 .8]
+		[.4 .8 .8]
+		[.6 .8 .8]
+		[.8 .8 .8]
+	]
+def
+
+/layerlen layercolorseq length def
+
+/setlayer {/maxlayer exch def /curlayer exch def
+	layercolorseq curlayer 1 sub layerlen mod get
+	aload pop sethsbcolor
+	/nodecolor {nopcolor} def
+	/edgecolor {nopcolor} def
+	/graphcolor {nopcolor} def
+} bind def
+
+/onlayer { curlayer ne {invis} if } def
+
+/onlayers {
+	/myupper exch def
+	/mylower exch def
+	curlayer mylower lt
+	curlayer myupper gt
+	or
+	{invis} if
+} def
+
+/curlayer 0 def
+
+%%EndResource
+%%EndProlog
+%%BeginSetup
+14 default-font-family set_font
+% /arrowlength 10 def
+% /arrowwidth 5 def
+
+% make sure pdfmark is harmless for PS-interpreters other than Distiller
+/pdfmark where {pop} {userdict /pdfmark /cleartomark load put} ifelse
+% make '<<' and '>>' safe on PS Level 1 devices
+/languagelevel where {pop languagelevel}{1} ifelse
+2 lt {
+    userdict (<<) cvn ([) cvn load put
+    userdict (>>) cvn ([) cvn load put
+} if
+
+%%EndSetup
+setupLatin1
+%%Page: 1 1
+%%PageBoundingBox: 36 36 4330 512
+%%PageOrientation: Portrait
+0 0 1 beginpage
+gsave
+36 36 4294 476 boxprim clip newpath
+1 1 set_scale 0 rotate 40 40 translate
+% [root] azurerm_app_service_plan.app_service_plan
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 261 324 moveto
+0 324 lineto
+0 288 lineto
+261 288 lineto
+closepath stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+8 302.3 moveto 245 (azurerm_app_service_plan.app_service_plan) alignedtext
+grestore
+% [root] azurerm_resource_group.rg
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 655 108 moveto
+488 108 lineto
+488 72 lineto
+655 72 lineto
+closepath stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+496 86.3 moveto 151 (azurerm_resource_group.rg) alignedtext
+grestore
+% [root] azurerm_app_service_plan.app_service_plan->[root] azurerm_resource_group.rg
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 167.3409 287.9555 moveto
+247.4341 248.7262 437.2685 155.746 525.2521 112.652 curveto
+stroke
+0 0 0 edgecolor
+newpath 527.0127 115.687 moveto
+534.4538 108.1451 lineto
+523.9336 109.4006 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 527.0127 115.687 moveto
+534.4538 108.1451 lineto
+523.9336 109.4006 lineto
+closepath stroke
+grestore
+% [root] azurerm_application_insights.app_insights
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 528 324 moveto
+279 324 lineto
+279 288 lineto
+528 288 lineto
+closepath stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+287 302.3 moveto 233 (azurerm_application_insights.app_insights) alignedtext
+grestore
+% [root] azurerm_application_insights.app_insights->[root] azurerm_resource_group.rg
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 411.6964 287.5022 moveto
+426.3528 255.764 459.3998 189.9225 500.5 144 curveto
+510.3898 132.9498 522.815 122.6109 534.4951 113.9972 curveto
+stroke
+0 0 0 edgecolor
+newpath 536.7221 116.7076 moveto
+542.8215 108.0445 lineto
+532.651 111.0132 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 536.7221 116.7076 moveto
+542.8215 108.0445 lineto
+532.651 111.0132 lineto
+closepath stroke
+grestore
+% [root] azurerm_cdn_endpoint.cdn
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 711 324 moveto
+546 324 lineto
+546 288 lineto
+711 288 lineto
+closepath stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+554 302.3 moveto 149 (azurerm_cdn_endpoint.cdn) alignedtext
+grestore
+% [root] azurerm_cdn_profile.cdn
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 663.5 180 moveto
+509.5 180 lineto
+509.5 144 lineto
+663.5 144 lineto
+closepath stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+517.5 158.3 moveto 138 (azurerm_cdn_profile.cdn) alignedtext
+grestore
+% [root] azurerm_cdn_endpoint.cdn->[root] azurerm_cdn_profile.cdn
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 623.1807 287.7623 moveto
+615.9854 263.0928 603.0841 218.8598 594.6588 189.9731 curveto
+stroke
+0 0 0 edgecolor
+newpath 597.9362 188.7096 moveto
+591.7761 180.0896 lineto
+591.2162 190.6696 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 597.9362 188.7096 moveto
+591.7761 180.0896 lineto
+591.2162 190.6696 lineto
+closepath stroke
+grestore
+% [root] azurerm_cdn_profile.cdn->[root] azurerm_resource_group.rg
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 582.7149 143.8314 moveto
+581.1106 136.131 579.203 126.9743 577.4201 118.4166 curveto
+stroke
+0 0 0 edgecolor
+newpath 580.8021 117.4892 moveto
+575.3361 108.4133 lineto
+573.9493 118.9169 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 580.8021 117.4892 moveto
+575.3361 108.4133 lineto
+573.9493 118.9169 lineto
+closepath stroke
+grestore
+% [root] provider.azurerm
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 402.5 36 moveto
+300.4471 18 lineto
+402.5 0 lineto
+504.5529 18 lineto
+closepath stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+355 14.3 moveto 95 (provider.azurerm) alignedtext
+grestore
+% [root] azurerm_resource_group.rg->[root] provider.azurerm
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 528.8542 71.8314 moveto
+502.1182 60.4409 467.9034 45.8642 441.8222 34.7527 curveto
+stroke
+0 0 0 edgecolor
+newpath 443.182 31.5276 moveto
+432.6103 30.8281 lineto
+440.4384 37.9676 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 443.182 31.5276 moveto
+432.6103 30.8281 lineto
+440.4384 37.9676 lineto
+closepath stroke
+grestore
+% [root] var.base_name
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 614.5 36 moveto
+522.5 36 lineto
+522.5 0 lineto
+620.5 0 lineto
+620.5 30 lineto
+closepath stroke
+1 setlinewidth
+0 0 0 nodecolor
+newpath 614.5 36 moveto
+614.5 30 lineto
+stroke
+1 setlinewidth
+0 0 0 nodecolor
+newpath 620.5 30 moveto
+614.5 30 lineto
+stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+530.5 14.3 moveto 82 (var.base_name) alignedtext
+grestore
+% [root] azurerm_resource_group.rg->[root] var.base_name
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 571.5 71.8314 moveto
+571.5 64.131 571.5 54.9743 571.5 46.4166 curveto
+stroke
+0 0 0 edgecolor
+newpath 575.0001 46.4132 moveto
+571.5 36.4133 lineto
+568.0001 46.4133 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 575.0001 46.4132 moveto
+571.5 36.4133 lineto
+568.0001 46.4133 lineto
+closepath stroke
+grestore
+% [root] var.location
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 714 36 moveto
+639 36 lineto
+639 0 lineto
+720 0 lineto
+720 30 lineto
+closepath stroke
+1 setlinewidth
+0 0 0 nodecolor
+newpath 714 36 moveto
+714 30 lineto
+stroke
+1 setlinewidth
+0 0 0 nodecolor
+newpath 720 30 moveto
+714 30 lineto
+stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+647 14.3 moveto 65 (var.location) alignedtext
+grestore
+% [root] azurerm_resource_group.rg->[root] var.location
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 598.753 71.8314 moveto
+612.4389 62.7074 629.1915 51.539 643.8827 41.7449 curveto
+stroke
+0 0 0 edgecolor
+newpath 645.8767 44.6221 moveto
+652.2558 36.1628 lineto
+641.9938 38.7977 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 645.8767 44.6221 moveto
+652.2558 36.1628 lineto
+641.9938 38.7977 lineto
+closepath stroke
+grestore
+% [root] azurerm_storage_account.az_backend
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 1767.5 180 moveto
+1543.5 180 lineto
+1543.5 144 lineto
+1767.5 144 lineto
+closepath stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+1551.5 158.3 moveto 208 (azurerm_storage_account.az_backend) alignedtext
+grestore
+% [root] azurerm_storage_account.az_backend->[root] azurerm_resource_group.rg
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 1543.3224 154.5491 moveto
+1328.9182 140.3082 864.5842 109.4668 665.3715 96.235 curveto
+stroke
+0 0 0 edgecolor
+newpath 665.4335 92.7315 moveto
+655.2235 95.561 lineto
+664.9696 99.7161 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 665.4335 92.7315 moveto
+655.2235 95.561 lineto
+664.9696 99.7161 lineto
+closepath stroke
+grestore
+% [root] azurerm_storage_blob.file1
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 1636 324 moveto
+1469 324 lineto
+1469 288 lineto
+1636 288 lineto
+closepath stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+1477 302.3 moveto 151 (azurerm_storage_blob.file1) alignedtext
+grestore
+% [root] azurerm_storage_container.web
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 2504 252 moveto
+2313 252 lineto
+2313 216 lineto
+2504 216 lineto
+closepath stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+2321 230.3 moveto 175 (azurerm_storage_container.web) alignedtext
+grestore
+% [root] azurerm_storage_blob.file1->[root] azurerm_storage_container.web
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 1636.1651 289.179 moveto
+1638.9731 288.7587 1641.7573 288.3638 1644.5 288 curveto
+1878.137 257.0063 2154.4895 243.0445 2302.4086 237.3875 curveto
+stroke
+0 0 0 edgecolor
+newpath 2302.9735 240.8688 moveto
+2312.8345 236.9944 lineto
+2302.7097 233.8738 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2302.9735 240.8688 moveto
+2312.8345 236.9944 lineto
+2302.7097 233.8738 lineto
+closepath stroke
+grestore
+% [root] azurerm_storage_blob.file10
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 1827 324 moveto
+1654 324 lineto
+1654 288 lineto
+1827 288 lineto
+closepath stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+1662 302.3 moveto 157 (azurerm_storage_blob.file10) alignedtext
+grestore
+% [root] azurerm_storage_blob.file10->[root] azurerm_storage_container.web
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 1827.166 289.2339 moveto
+1829.974 288.8011 1832.7576 288.3882 1835.5 288 curveto
+1997.7998 265.0277 2187.3905 249.3226 2302.6477 241.0043 curveto
+stroke
+0 0 0 edgecolor
+newpath 2303.1533 244.4771 moveto
+2312.8776 240.2713 lineto
+2302.653 237.495 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2303.1533 244.4771 moveto
+2312.8776 240.2713 lineto
+2302.653 237.495 lineto
+closepath stroke
+grestore
+% [root] azurerm_storage_blob.file11
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 2018 324 moveto
+1845 324 lineto
+1845 288 lineto
+2018 288 lineto
+closepath stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+1853 302.3 moveto 157 (azurerm_storage_blob.file11) alignedtext
+grestore
+% [root] azurerm_storage_blob.file11->[root] azurerm_storage_container.web
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2018.1916 289.4009 moveto
+2020.9923 288.9201 2023.7673 288.4518 2026.5 288 curveto
+2119.6244 272.6043 2225.9793 257.7951 2302.7792 247.5921 curveto
+stroke
+0 0 0 edgecolor
+newpath 2303.4872 251.0289 moveto
+2312.941 246.246 lineto
+2302.568 244.0895 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2303.4872 251.0289 moveto
+2312.941 246.246 lineto
+2302.568 244.0895 lineto
+closepath stroke
+grestore
+% [root] azurerm_storage_blob.file12
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 2209 324 moveto
+2036 324 lineto
+2036 288 lineto
+2209 288 lineto
+closepath stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+2044 302.3 moveto 157 (azurerm_storage_blob.file12) alignedtext
+grestore
+% [root] azurerm_storage_blob.file12->[root] azurerm_storage_container.web
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2194.3007 287.9243 moveto
+2234.5885 277.7819 2284.999 265.0912 2326.7936 254.5694 curveto
+stroke
+0 0 0 edgecolor
+newpath 2327.8268 257.9186 moveto
+2336.6697 252.0831 lineto
+2326.1178 251.1304 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2327.8268 257.9186 moveto
+2336.6697 252.0831 lineto
+2326.1178 251.1304 lineto
+closepath stroke
+grestore
+% [root] azurerm_storage_blob.file13
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 2400 324 moveto
+2227 324 lineto
+2227 288 lineto
+2400 288 lineto
+closepath stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+2235 302.3 moveto 157 (azurerm_storage_blob.file13) alignedtext
+grestore
+% [root] azurerm_storage_blob.file13->[root] azurerm_storage_container.web
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2337.4725 287.8314 moveto
+2349.2861 278.8779 2363.6972 267.9558 2376.4435 258.2955 curveto
+stroke
+0 0 0 edgecolor
+newpath 2378.6795 260.9925 moveto
+2384.5352 252.1628 lineto
+2374.4514 255.4137 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2378.6795 260.9925 moveto
+2384.5352 252.1628 lineto
+2374.4514 255.4137 lineto
+closepath stroke
+grestore
+% [root] azurerm_storage_blob.file14
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 2591 324 moveto
+2418 324 lineto
+2418 288 lineto
+2591 288 lineto
+closepath stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+2426 302.3 moveto 157 (azurerm_storage_blob.file14) alignedtext
+grestore
+% [root] azurerm_storage_blob.file14->[root] azurerm_storage_container.web
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2480.2751 287.8314 moveto
+2468.3372 278.8779 2453.7744 267.9558 2440.894 258.2955 curveto
+stroke
+0 0 0 edgecolor
+newpath 2442.8171 255.3629 moveto
+2432.7171 252.1628 lineto
+2438.6171 260.9629 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2442.8171 255.3629 moveto
+2432.7171 252.1628 lineto
+2438.6171 260.9629 lineto
+closepath stroke
+grestore
+% [root] azurerm_storage_blob.file15
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 2782 324 moveto
+2609 324 lineto
+2609 288 lineto
+2782 288 lineto
+closepath stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+2617 302.3 moveto 157 (azurerm_storage_blob.file15) alignedtext
+grestore
+% [root] azurerm_storage_blob.file15->[root] azurerm_storage_container.web
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2623.4482 287.9243 moveto
+2583.0196 277.7819 2532.4328 265.0912 2490.492 254.5694 curveto
+stroke
+0 0 0 edgecolor
+newpath 2491.1325 251.1217 moveto
+2480.5814 252.0831 lineto
+2489.4292 257.9113 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2491.1325 251.1217 moveto
+2480.5814 252.0831 lineto
+2489.4292 257.9113 lineto
+closepath stroke
+grestore
+% [root] azurerm_storage_blob.file16
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 2973 324 moveto
+2800 324 lineto
+2800 288 lineto
+2973 288 lineto
+closepath stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+2808 302.3 moveto 157 (azurerm_storage_blob.file16) alignedtext
+grestore
+% [root] azurerm_storage_blob.file16->[root] azurerm_storage_container.web
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2799.8086 289.3996 moveto
+2797.0079 288.9192 2794.2328 288.4513 2791.5 288 curveto
+2698.1338 272.5817 2591.5003 257.7748 2514.4988 247.5783 curveto
+stroke
+0 0 0 edgecolor
+newpath 2514.6824 244.0723 moveto
+2504.3103 246.2332 lineto
+2513.7661 251.0121 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2514.6824 244.0723 moveto
+2504.3103 246.2332 lineto
+2513.7661 251.0121 lineto
+closepath stroke
+grestore
+% [root] azurerm_storage_blob.file17
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 3164 324 moveto
+2991 324 lineto
+2991 288 lineto
+3164 288 lineto
+closepath stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+2999 302.3 moveto 157 (azurerm_storage_blob.file17) alignedtext
+grestore
+% [root] azurerm_storage_blob.file17->[root] azurerm_storage_container.web
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2990.8341 289.2333 moveto
+2988.0261 288.8007 2985.2425 288.3879 2982.5 288 curveto
+2819.7973 264.9841 2629.7148 249.2803 2514.2812 240.9756 curveto
+stroke
+0 0 0 edgecolor
+newpath 2514.2602 237.4653 moveto
+2504.0362 240.2439 lineto
+2513.7615 244.4475 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2514.2602 237.4653 moveto
+2504.0362 240.2439 lineto
+2513.7615 244.4475 lineto
+closepath stroke
+grestore
+% [root] azurerm_storage_blob.file18
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 3355 324 moveto
+3182 324 lineto
+3182 288 lineto
+3355 288 lineto
+closepath stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+3190 302.3 moveto 157 (azurerm_storage_blob.file18) alignedtext
+grestore
+% [root] azurerm_storage_blob.file18->[root] azurerm_storage_container.web
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 3181.8455 289.1493 moveto
+3179.0342 288.7408 3176.2468 288.3559 3173.5 288 curveto
+2939.2319 257.6434 2662.2335 243.4267 2514.2605 237.5594 curveto
+stroke
+0 0 0 edgecolor
+newpath 2514.3963 234.0621 moveto
+2504.267 237.1681 lineto
+2514.1224 241.0568 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2514.3963 234.0621 moveto
+2504.267 237.1681 lineto
+2514.1224 241.0568 lineto
+closepath stroke
+grestore
+% [root] azurerm_storage_blob.file19
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 3546 324 moveto
+3373 324 lineto
+3373 288 lineto
+3546 288 lineto
+closepath stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+3381 302.3 moveto 157 (azurerm_storage_blob.file19) alignedtext
+grestore
+% [root] azurerm_storage_blob.file19->[root] azurerm_storage_container.web
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 3372.8519 289.0986 moveto
+3370.0387 288.7046 3367.2492 288.3366 3364.5 288 curveto
+3057.164 250.3679 2690.9747 238.9104 2514.2655 235.4607 curveto
+stroke
+0 0 0 edgecolor
+newpath 2514.2552 231.96 moveto
+2504.1903 235.2687 lineto
+2514.1218 238.9587 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2514.2552 231.96 moveto
+2504.1903 235.2687 lineto
+2514.1218 238.9587 lineto
+closepath stroke
+grestore
+% [root] azurerm_storage_blob.file2
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 3731 324 moveto
+3564 324 lineto
+3564 288 lineto
+3731 288 lineto
+closepath stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+3572 302.3 moveto 151 (azurerm_storage_blob.file2) alignedtext
+grestore
+% [root] azurerm_storage_blob.file2->[root] azurerm_storage_container.web
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 3563.8456 289.0946 moveto
+3561.0345 288.6985 3558.2468 288.3316 3555.5 288 curveto
+3355.8747 263.9034 2758.639 244.2521 2514.3807 237.0029 curveto
+stroke
+0 0 0 edgecolor
+newpath 2514.1753 233.4954 moveto
+2504.0762 236.6983 lineto
+2513.9683 240.4924 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2514.1753 233.4954 moveto
+2504.0762 236.6983 lineto
+2513.9683 240.4924 lineto
+closepath stroke
+grestore
+% [root] azurerm_storage_blob.file3
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 3916 324 moveto
+3749 324 lineto
+3749 288 lineto
+3916 288 lineto
+closepath stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+3757 302.3 moveto 151 (azurerm_storage_blob.file3) alignedtext
+grestore
+% [root] azurerm_storage_blob.file3->[root] azurerm_storage_container.web
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 3748.8484 289.0711 moveto
+3746.0365 288.6817 3743.2479 288.3226 3740.5 288 curveto
+3503.9118 260.2246 2786.5421 242.202 2514.5741 236.2071 curveto
+stroke
+0 0 0 edgecolor
+newpath 2514.3801 232.702 moveto
+2504.3057 235.9818 lineto
+2514.2264 239.7004 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2514.3801 232.702 moveto
+2504.3057 235.9818 lineto
+2514.2264 239.7004 lineto
+closepath stroke
+grestore
+% [root] azurerm_storage_blob.file4
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 4101 324 moveto
+3934 324 lineto
+3934 288 lineto
+4101 288 lineto
+closepath stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+3942 302.3 moveto 151 (azurerm_storage_blob.file4) alignedtext
+grestore
+% [root] azurerm_storage_blob.file4->[root] azurerm_storage_container.web
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 3933.8504 289.0534 moveto
+3931.038 288.6691 3928.2487 288.3158 3925.5 288 curveto
+3651.6354 256.5335 2812.2714 240.4334 2514.5735 235.599 curveto
+stroke
+0 0 0 edgecolor
+newpath 2514.269 232.0937 moveto
+2504.2137 235.4318 lineto
+2514.1559 239.0928 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2514.269 232.0937 moveto
+2504.2137 235.4318 lineto
+2514.1559 239.0928 lineto
+closepath stroke
+grestore
+% [root] azurerm_storage_blob.file5
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 4286 324 moveto
+4119 324 lineto
+4119 288 lineto
+4286 288 lineto
+closepath stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+4127 302.3 moveto 151 (azurerm_storage_blob.file5) alignedtext
+grestore
+% [root] azurerm_storage_blob.file5->[root] azurerm_storage_container.web
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 4118.852 289.0395 moveto
+4116.0391 288.6591 4113.2493 288.3105 4110.5 288 curveto
+3799.0917 252.8293 2836.1486 238.8766 2514.4095 235.12 curveto
+stroke
+0 0 0 edgecolor
+newpath 2514.1968 231.6174 moveto
+2504.1568 235.0012 lineto
+2514.1156 238.6169 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2514.1968 231.6174 moveto
+2504.1568 235.0012 lineto
+2514.1156 238.6169 lineto
+closepath stroke
+grestore
+% [root] azurerm_storage_blob.file6
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 896 324 moveto
+729 324 lineto
+729 288 lineto
+896 288 lineto
+closepath stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+737 302.3 moveto 151 (azurerm_storage_blob.file6) alignedtext
+grestore
+% [root] azurerm_storage_blob.file6->[root] azurerm_storage_container.web
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 896.1497 289.0545 moveto
+898.9621 288.6699 901.7514 288.3162 904.5 288 curveto
+1175.7754 256.7887 2006.7143 240.5454 2302.5498 235.6349 curveto
+stroke
+0 0 0 edgecolor
+newpath 2302.9052 239.1296 moveto
+2312.8461 235.465 lineto
+2302.7897 232.1305 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2302.9052 239.1296 moveto
+2312.8461 235.465 lineto
+2302.7897 232.1305 lineto
+closepath stroke
+grestore
+% [root] azurerm_storage_blob.file7
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 1081 324 moveto
+914 324 lineto
+914 288 lineto
+1081 288 lineto
+closepath stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+922 302.3 moveto 151 (azurerm_storage_blob.file7) alignedtext
+grestore
+% [root] azurerm_storage_blob.file7->[root] azurerm_storage_container.web
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 1081.1518 289.0726 moveto
+1083.9636 288.6828 1086.7522 288.3231 1089.5 288 curveto
+1323.4966 260.4815 2032.444 242.3333 2302.4903 236.2547 curveto
+stroke
+0 0 0 edgecolor
+newpath 2302.7688 239.7494 moveto
+2312.6879 236.0262 lineto
+2302.6119 232.7512 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2302.7688 239.7494 moveto
+2312.6879 236.0262 lineto
+2302.6119 232.7512 lineto
+closepath stroke
+grestore
+% [root] azurerm_storage_blob.file8
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 1266 324 moveto
+1099 324 lineto
+1099 288 lineto
+1266 288 lineto
+closepath stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+1107 302.3 moveto 151 (azurerm_storage_blob.file8) alignedtext
+grestore
+% [root] azurerm_storage_blob.file8->[root] azurerm_storage_container.web
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 1266.1546 289.0965 moveto
+1268.9656 288.6999 1271.7533 288.3323 1274.5 288 curveto
+1471.4997 264.1665 2060.166 244.4176 2302.4879 237.0728 curveto
+stroke
+0 0 0 edgecolor
+newpath 2302.8234 240.5644 moveto
+2312.7132 236.7641 lineto
+2302.6121 233.5676 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2302.8234 240.5644 moveto
+2312.7132 236.7641 lineto
+2302.6121 233.5676 lineto
+closepath stroke
+grestore
+% [root] azurerm_storage_blob.file9
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 1451 324 moveto
+1284 324 lineto
+1284 288 lineto
+1451 288 lineto
+closepath stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+1292 302.3 moveto 151 (azurerm_storage_blob.file9) alignedtext
+grestore
+% [root] azurerm_storage_blob.file9->[root] azurerm_storage_container.web
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 1451.1587 289.1297 moveto
+1453.9686 288.7236 1456.7548 288.345 1459.5 288 curveto
+1764.0706 249.7211 2127.0746 238.5599 2302.7897 235.3182 curveto
+stroke
+0 0 0 edgecolor
+newpath 2302.874 238.8174 moveto
+2312.8095 235.1382 lineto
+2302.7482 231.8185 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2302.874 238.8174 moveto
+2312.8095 235.1382 lineto
+2302.7482 231.8185 lineto
+closepath stroke
+grestore
+% [root] azurerm_storage_container.web->[root] azurerm_storage_account.az_backend
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2312.7499 224.8446 moveto
+2176.6427 211.8304 1927.2074 187.98 1777.8537 173.6992 curveto
+stroke
+0 0 0 edgecolor
+newpath 1778.0075 170.198 moveto
+1767.7197 172.7302 lineto
+1777.3411 177.1662 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1778.0075 170.198 moveto
+1767.7197 172.7302 lineto
+1777.3411 177.1662 lineto
+closepath stroke
+grestore
+% [root] meta.count-boundary (EachMode fixup)
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+2059.5 378 176.5689 18 ellipse_path stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+1931.5 374.3 moveto 256 ([root] meta.count-boundary \(EachMode fixup\)) alignedtext
+grestore
+% [root] meta.count-boundary (EachMode fixup)->[root] azurerm_app_service_plan.app_service_plan
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 1885.2267 374.9351 moveto
+1502.7318 367.8543 598.4115 349.0869 271.038 324.066 curveto
+stroke
+0 0 0 edgecolor
+newpath 271.2922 320.5753 moveto
+261.0501 323.2864 lineto
+270.7474 327.5541 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 271.2922 320.5753 moveto
+261.0501 323.2864 lineto
+270.7474 327.5541 lineto
+closepath stroke
+grestore
+% [root] meta.count-boundary (EachMode fixup)->[root] azurerm_application_insights.app_insights
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 1887.0432 374.04 moveto
+1549.8778 365.9467 813.0403 346.4411 538.4204 324.1014 curveto
+stroke
+0 0 0 edgecolor
+newpath 538.3139 320.5805 moveto
+528.0579 323.2383 lineto
+537.7328 327.5563 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 538.3139 320.5805 moveto
+528.0579 323.2383 lineto
+537.7328 327.5563 lineto
+closepath stroke
+grestore
+% [root] meta.count-boundary (EachMode fixup)->[root] azurerm_cdn_endpoint.cdn
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 1886.3038 374.3633 moveto
+1581.0989 367.4048 958.1272 350.5955 721.2082 324.0798 curveto
+stroke
+0 0 0 edgecolor
+newpath 721.5752 320.599 moveto
+711.2402 322.9312 lineto
+720.7738 327.553 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 721.5752 320.599 moveto
+711.2402 322.9312 lineto
+720.7738 327.553 lineto
+closepath stroke
+grestore
+% [root] meta.count-boundary (EachMode fixup)->[root] azurerm_storage_blob.file1
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 1940.6964 364.5823 moveto
+1860.1517 355.0026 1751.0689 341.0924 1646.3187 324.2496 curveto
+stroke
+0 0 0 edgecolor
+newpath 1646.6271 320.754 moveto
+1636.1962 322.6105 lineto
+1645.5081 327.664 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1646.6271 320.754 moveto
+1636.1962 322.6105 lineto
+1645.5081 327.664 lineto
+closepath stroke
+grestore
+% [root] meta.count-boundary (EachMode fixup)->[root] azurerm_storage_blob.file10
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 1986.7148 361.572 moveto
+1940.3516 351.1076 1879.944 337.4733 1830.5671 326.3286 curveto
+stroke
+0 0 0 edgecolor
+newpath 1831.0524 322.8502 moveto
+1820.5272 324.0626 lineto
+1829.5112 329.6784 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1831.0524 322.8502 moveto
+1820.5272 324.0626 lineto
+1829.5112 329.6784 lineto
+closepath stroke
+grestore
+% [root] meta.count-boundary (EachMode fixup)->[root] azurerm_storage_blob.file11
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2027.8595 360.2022 moveto
+2011.2162 350.8404 1990.6107 339.2498 1972.7314 329.1927 curveto
+stroke
+0 0 0 edgecolor
+newpath 1974.0972 325.9453 moveto
+1963.6655 324.0931 lineto
+1970.6654 332.0463 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1974.0972 325.9453 moveto
+1963.6655 324.0931 lineto
+1970.6654 332.0463 lineto
+closepath stroke
+grestore
+% [root] meta.count-boundary (EachMode fixup)->[root] azurerm_storage_blob.file12
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2075.3976 359.8314 moveto
+2082.7278 351.454 2091.566 341.3531 2099.5969 332.1749 curveto
+stroke
+0 0 0 edgecolor
+newpath 2102.4373 334.2438 moveto
+2106.3884 324.4133 lineto
+2097.1693 329.6343 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2102.4373 334.2438 moveto
+2106.3884 324.4133 lineto
+2097.1693 329.6343 lineto
+closepath stroke
+grestore
+% [root] meta.count-boundary (EachMode fixup)->[root] azurerm_storage_blob.file13
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2119.3728 361.0282 moveto
+2155.3206 350.8383 2201.3376 337.7941 2239.5457 326.9634 curveto
+stroke
+0 0 0 edgecolor
+newpath 2240.9225 330.2111 moveto
+2249.5889 324.1165 lineto
+2239.0134 323.4765 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2240.9225 330.2111 moveto
+2249.5889 324.1165 lineto
+2239.0134 323.4765 lineto
+closepath stroke
+grestore
+% [root] meta.count-boundary (EachMode fixup)->[root] azurerm_storage_blob.file14
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2160.8147 363.1946 moveto
+2228.0263 353.1671 2318.4416 339.2871 2407.8645 324.0813 curveto
+stroke
+0 0 0 edgecolor
+newpath 2408.6472 327.4984 moveto
+2417.9157 322.3657 lineto
+2407.4694 320.5982 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2408.6472 327.4984 moveto
+2417.9157 322.3657 lineto
+2407.4694 320.5982 lineto
+closepath stroke
+grestore
+% [root] meta.count-boundary (EachMode fixup)->[root] azurerm_storage_blob.file15
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2187.1923 365.5388 moveto
+2328.9909 351.6619 2544.3058 330.4604 2598.7708 324.0246 curveto
+stroke
+0 0 0 edgecolor
+newpath 2599.3522 327.479 moveto
+2608.8312 322.7462 lineto
+2598.4697 320.5348 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2599.3522 327.479 moveto
+2608.8312 322.7462 lineto
+2598.4697 320.5348 lineto
+closepath stroke
+grestore
+% [root] meta.count-boundary (EachMode fixup)->[root] azurerm_storage_blob.file16
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2185.2685 365.3012 moveto
+2205.4032 363.4203 2226.0177 361.5846 2245.5 360 curveto
+2484.5792 340.5545 2548.5123 354.3056 2789.7143 324.1471 curveto
+stroke
+0 0 0 edgecolor
+newpath 2790.365 327.5928 moveto
+2799.8476 322.8674 lineto
+2789.4879 320.6479 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2790.365 327.5928 moveto
+2799.8476 322.8674 lineto
+2789.4879 320.6479 lineto
+closepath stroke
+grestore
+% [root] meta.count-boundary (EachMode fixup)->[root] azurerm_storage_blob.file17
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2183.743 365.148 moveto
+2204.3562 363.2538 2225.5196 361.454 2245.5 360 curveto
+2569.2274 336.4427 2655.0822 362.0814 2980.6584 324.1291 curveto
+stroke
+0 0 0 edgecolor
+newpath 2981.3329 327.5739 moveto
+2990.8552 322.9289 lineto
+2980.5146 320.6219 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2981.3329 327.5739 moveto
+2990.8552 322.9289 lineto
+2980.5146 320.6219 lineto
+closepath stroke
+grestore
+% [root] meta.count-boundary (EachMode fixup)->[root] azurerm_storage_blob.file18
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2182.7297 365.0659 moveto
+2203.6596 363.1583 2225.1888 361.3756 2245.5 360 curveto
+2653.9935 332.334 2761.6495 369.9327 3171.8053 324.0985 curveto
+stroke
+0 0 0 edgecolor
+newpath 3172.3144 327.5634 moveto
+3181.8594 322.9651 lineto
+3171.5302 320.6075 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3172.3144 327.5634 moveto
+3181.8594 322.9651 lineto
+3171.5302 320.6075 lineto
+closepath stroke
+grestore
+% [root] meta.count-boundary (EachMode fixup)->[root] azurerm_storage_blob.file19
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2181.9719 365.0191 moveto
+2203.138 363.0988 2224.9416 361.3241 2245.5 360 curveto
+2738.6673 328.2371 2868.1357 377.7938 3362.5998 324.1122 curveto
+stroke
+0 0 0 edgecolor
+newpath 3363.3023 327.5563 moveto
+3372.8621 322.989 lineto
+3362.5406 320.5979 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3363.3023 327.5563 moveto
+3372.8621 322.989 lineto
+3362.5406 320.5979 lineto
+closepath stroke
+grestore
+% [root] meta.count-boundary (EachMode fixup)->[root] azurerm_storage_blob.file2
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2181.7167 364.96 moveto
+2202.9617 363.0401 2224.8576 361.2809 2245.5 360 curveto
+2823.4177 324.1383 2974.8301 387.3889 3553.5758 324.1079 curveto
+stroke
+0 0 0 edgecolor
+newpath 3554.2971 327.5497 moveto
+3563.8537 322.9758 lineto
+3553.5306 320.5918 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3554.2971 327.5497 moveto
+3563.8537 322.9758 lineto
+3553.5306 320.5918 lineto
+closepath stroke
+grestore
+% [root] meta.count-boundary (EachMode fixup)->[root] azurerm_storage_blob.file3
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2181.4632 364.9231 moveto
+2202.7867 363.0011 2224.7745 361.2507 2245.5 360 curveto
+2905.5287 320.1687 3078.0167 395.2893 3738.6033 324.1003 curveto
+stroke
+0 0 0 edgecolor
+newpath 3739.291 327.5463 moveto
+3748.8551 322.988 lineto
+3738.5359 320.5871 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3739.291 327.5463 moveto
+3748.8551 322.988 lineto
+3738.5359 320.5871 lineto
+closepath stroke
+grestore
+% [root] meta.count-boundary (EachMode fixup)->[root] azurerm_storage_blob.file4
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2181.4604 364.8768 moveto
+2202.7843 362.9599 2224.7729 361.2233 2245.5 360 curveto
+2987.6735 316.1985 3181.2136 403.2035 3923.7157 324.0847 curveto
+stroke
+0 0 0 edgecolor
+newpath 3924.2862 327.5437 moveto
+3933.8561 322.9975 lineto
+3923.5399 320.5836 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3924.2862 327.5437 moveto
+3933.8561 322.9975 lineto
+3923.5399 320.5836 lineto
+closepath stroke
+grestore
+% [root] meta.count-boundary (EachMode fixup)->[root] azurerm_storage_blob.file5
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2180.9586 364.8845 moveto
+2202.4387 362.9539 2224.6096 361.2106 2245.5 360 curveto
+2656.0943 336.2053 3682.1202 367.4669 4108.8878 324.0448 curveto
+stroke
+0 0 0 edgecolor
+newpath 4109.2739 327.5236 moveto
+4118.8569 323.0051 lineto
+4108.5478 320.5614 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 4109.2739 327.5236 moveto
+4118.8569 323.0051 lineto
+4108.5478 320.5614 lineto
+closepath stroke
+grestore
+% [root] meta.count-boundary (EachMode fixup)->[root] azurerm_storage_blob.file6
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 1889.2292 373.1071 moveto
+1620.2544 364.868 1107.742 346.9678 906.3728 324.1037 curveto
+stroke
+0 0 0 edgecolor
+newpath 906.4936 320.594 moveto
+896.1543 322.9066 lineto
+905.6791 327.5465 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 906.4936 320.594 moveto
+896.1543 322.9066 lineto
+905.6791 327.5465 lineto
+closepath stroke
+grestore
+% [root] meta.count-boundary (EachMode fixup)->[root] azurerm_storage_blob.file7
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 1884.0574 375.4821 moveto
+1691.5512 371.0556 1373.4154 358.8507 1091.1827 324.1197 curveto
+stroke
+0 0 0 edgecolor
+newpath 1091.5134 320.634 moveto
+1081.1582 322.8747 lineto
+1090.6505 327.5806 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1091.5134 320.634 moveto
+1081.1582 322.8747 lineto
+1090.6505 327.5806 lineto
+closepath stroke
+grestore
+% [root] meta.count-boundary (EachMode fixup)->[root] azurerm_storage_blob.file8
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 1890.8351 372.4718 moveto
+1733.87 365.9144 1493.364 352.2693 1276.1621 324.1353 curveto
+stroke
+0 0 0 edgecolor
+newpath 1276.5337 320.6542 moveto
+1266.1642 322.8278 lineto
+1275.6259 327.5951 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1276.5337 320.6542 moveto
+1266.1642 322.8278 lineto
+1275.6259 327.5951 lineto
+closepath stroke
+grestore
+% [root] meta.count-boundary (EachMode fixup)->[root] azurerm_storage_blob.file9
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 1907.9662 368.7152 moveto
+1788.9674 360.4 1618.9397 346.2665 1461.5243 324.2161 curveto
+stroke
+0 0 0 edgecolor
+newpath 1461.5662 320.6873 moveto
+1451.1746 322.7523 lineto
+1460.5858 327.6183 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1461.5662 320.6873 moveto
+1451.1746 322.7523 lineto
+1460.5858 327.6183 lineto
+closepath stroke
+grestore
+% [root] provider.azurerm (close)
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+2375.5 378 120.7786 18 ellipse_path stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+2290.5 374.3 moveto 170 ([root] provider.azurerm \(close\)) alignedtext
+grestore
+% [root] provider.azurerm (close)->[root] azurerm_app_service_plan.app_service_plan
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2292.0908 364.9512 moveto
+2276.636 362.9603 2260.6059 361.1792 2245.5 360 curveto
+1373.1098 291.9015 1147.2035 387.7696 271.0591 324.0649 curveto
+stroke
+0 0 0 edgecolor
+newpath 271.2755 320.5714 moveto
+261.0466 323.332 lineto
+270.7644 327.5527 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 271.2755 320.5714 moveto
+261.0466 323.332 lineto
+270.7644 327.5527 lineto
+closepath stroke
+grestore
+% [root] provider.azurerm (close)->[root] azurerm_application_insights.app_insights
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2291.7393 364.9415 moveto
+2276.3925 362.9652 2260.4907 361.1916 2245.5 360 curveto
+1491.493 300.0632 1295.6445 382.3116 538.1174 324.0723 curveto
+stroke
+0 0 0 edgecolor
+newpath 538.2939 320.5756 moveto
+528.0534 323.2929 lineto
+537.7533 327.5547 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 538.2939 320.5756 moveto
+528.0534 323.2929 lineto
+537.7533 327.5547 lineto
+closepath stroke
+grestore
+% [root] provider.azurerm (close)->[root] azurerm_cdn_endpoint.cdn
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2291.7368 364.9728 moveto
+2276.3903 362.9933 2260.4891 361.2105 2245.5 360 curveto
+1572.5926 305.6549 1395.5779 397.1914 721.1966 324.0787 curveto
+stroke
+0 0 0 edgecolor
+newpath 721.5544 320.5971 moveto
+711.2335 322.9906 lineto
+720.7943 327.5557 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 721.5544 320.5971 moveto
+711.2335 322.9906 lineto
+720.7943 327.5557 lineto
+closepath stroke
+grestore
+% [root] provider.azurerm (close)->[root] azurerm_storage_blob.file1
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2289.9508 365.1917 moveto
+2275.1516 363.2518 2259.8979 361.4258 2245.5 360 curveto
+1982.4632 333.9516 1911.6714 357.1835 1646.0959 324.1116 curveto
+stroke
+0 0 0 edgecolor
+newpath 1646.5193 320.6374 moveto
+1636.1601 322.8595 lineto
+1645.644 327.5825 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1646.5193 320.6374 moveto
+1636.1601 322.8595 lineto
+1645.644 327.5825 lineto
+closepath stroke
+grestore
+% [root] provider.azurerm (close)->[root] azurerm_storage_blob.file10
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2288.8657 365.3902 moveto
+2274.4001 363.4612 2259.5371 361.5871 2245.5 360 curveto
+2067.0186 339.8206 2018.4424 348.7204 1837.2976 324.1781 curveto
+stroke
+0 0 0 edgecolor
+newpath 1837.5454 320.6794 moveto
+1827.1628 322.7891 lineto
+1836.5949 327.6146 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1837.5454 320.6794 moveto
+1827.1628 322.7891 lineto
+1836.5949 327.6146 lineto
+closepath stroke
+grestore
+% [root] provider.azurerm (close)->[root] azurerm_storage_blob.file11
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2288.5959 365.3855 moveto
+2220.3222 355.282 2122.5796 340.3937 2028.205 324.2686 curveto
+stroke
+0 0 0 edgecolor
+newpath 2028.6474 320.7935 moveto
+2018.1995 322.5522 lineto
+2027.4637 327.6927 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2028.6474 320.7935 moveto
+2018.1995 322.5522 lineto
+2027.4637 327.6927 lineto
+closepath stroke
+grestore
+% [root] provider.azurerm (close)->[root] azurerm_storage_blob.file12
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2319.3511 362.0209 moveto
+2282.9817 351.6707 2235.2364 338.0831 2195.8761 326.8817 curveto
+stroke
+0 0 0 edgecolor
+newpath 2196.6381 323.4597 moveto
+2186.0619 324.0888 lineto
+2194.722 330.1923 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2196.6381 323.4597 moveto
+2186.0619 324.0888 lineto
+2194.722 330.1923 lineto
+closepath stroke
+grestore
+% [root] provider.azurerm (close)->[root] azurerm_storage_blob.file13
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2359.8548 359.8314 moveto
+2352.6409 351.454 2343.943 341.3531 2336.0395 332.1749 curveto
+stroke
+0 0 0 edgecolor
+newpath 2338.5333 329.7071 moveto
+2329.3559 324.4133 lineto
+2333.2289 334.2748 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2338.5333 329.7071 moveto
+2329.3559 324.4133 lineto
+2333.2289 334.2748 lineto
+closepath stroke
+grestore
+% [root] provider.azurerm (close)->[root] azurerm_storage_blob.file14
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2406.7273 360.5708 moveto
+2423.7727 351.0571 2445.0872 339.1606 2463.4611 328.9055 curveto
+stroke
+0 0 0 edgecolor
+newpath 2465.1869 331.9505 moveto
+2472.2131 324.0206 lineto
+2461.7753 325.8381 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2465.1869 331.9505 moveto
+2472.2131 324.0206 lineto
+2461.7753 325.8381 lineto
+closepath stroke
+grestore
+% [root] provider.azurerm (close)->[root] azurerm_storage_blob.file15
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2442.5825 362.9064 moveto
+2489.9302 352.2532 2553.891 337.862 2605.6441 326.2176 curveto
+stroke
+0 0 0 edgecolor
+newpath 2606.5028 329.6119 moveto
+2615.4906 324.0021 lineto
+2604.9662 322.7827 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2606.5028 329.6119 moveto
+2615.4906 324.0021 lineto
+2604.9662 322.7827 lineto
+closepath stroke
+grestore
+% [root] provider.azurerm (close)->[root] azurerm_storage_blob.file16
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2471.9779 367.0887 moveto
+2554.0467 357.4336 2675.2637 342.2948 2789.8169 324.227 curveto
+stroke
+0 0 0 edgecolor
+newpath 2790.4875 327.6644 moveto
+2799.815 322.6398 lineto
+2789.3899 320.751 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2790.4875 327.6644 moveto
+2799.815 322.6398 lineto
+2789.3899 320.751 lineto
+closepath stroke
+grestore
+% [root] provider.azurerm (close)->[root] azurerm_storage_blob.file17
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2488.0291 371.3192 moveto
+2607.9026 363.4413 2803.3542 348.4192 2980.7929 324.1701 curveto
+stroke
+0 0 0 edgecolor
+newpath 2981.4086 327.6184 moveto
+2990.8367 322.7849 lineto
+2980.4522 320.6841 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2981.4086 327.6184 moveto
+2990.8367 322.7849 lineto
+2980.4522 320.6841 lineto
+closepath stroke
+grestore
+% [root] provider.azurerm (close)->[root] azurerm_storage_blob.file18
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2494.2342 374.4026 moveto
+2648.3662 368.7329 2925.7858 355.1237 3171.6417 324.1589 curveto
+stroke
+0 0 0 edgecolor
+newpath 3172.3682 327.5948 moveto
+3181.8468 322.8612 lineto
+3171.4852 320.6507 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3172.3682 327.5948 moveto
+3181.8468 322.8612 lineto
+3171.4852 320.6507 lineto
+closepath stroke
+grestore
+% [root] provider.azurerm (close)->[root] azurerm_storage_blob.file19
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2496.2217 376.5619 moveto
+2680.984 373.2133 3045.0414 362.0912 3362.5269 324.1536 curveto
+stroke
+0 0 0 edgecolor
+newpath 3363.3438 327.5805 moveto
+3372.8527 322.9082 lineto
+3362.5055 320.6309 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3363.3438 327.5805 moveto
+3372.8527 322.9082 lineto
+3362.5055 320.6309 lineto
+closepath stroke
+grestore
+% [root] provider.azurerm (close)->[root] azurerm_storage_blob.file2
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2494.8163 374.7779 moveto
+2748.2285 367.5746 3334.2177 348.9154 3553.6756 324.0966 curveto
+stroke
+0 0 0 edgecolor
+newpath 3554.3191 327.5454 moveto
+3563.8462 322.9102 lineto
+3553.5079 320.5925 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3554.3191 327.5454 moveto
+3563.8462 322.9102 lineto
+3553.5079 320.5925 lineto
+closepath stroke
+grestore
+% [root] provider.azurerm (close)->[root] azurerm_storage_blob.file3
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2495.5203 375.6201 moveto
+2778.5235 369.6303 3482.3773 352.4298 3738.8127 324.0748 curveto
+stroke
+0 0 0 edgecolor
+newpath 3739.3088 327.541 moveto
+3748.8488 322.9324 lineto
+3738.5171 320.5859 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3739.3088 327.541 moveto
+3748.8488 322.9324 lineto
+3738.5171 320.5859 lineto
+closepath stroke
+grestore
+% [root] provider.azurerm (close)->[root] azurerm_storage_blob.file4
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2495.9624 376.2716 moveto
+2806.4669 371.4254 3629.6983 355.9971 3923.62 324.0913 curveto
+stroke
+0 0 0 edgecolor
+newpath 3924.3008 327.5371 moveto
+3933.8507 322.9493 lineto
+3923.5242 320.5803 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3924.3008 327.5371 moveto
+3933.8507 322.9493 lineto
+3923.5242 320.5803 lineto
+closepath stroke
+grestore
+% [root] provider.azurerm (close)->[root] azurerm_storage_blob.file5
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2496.2978 376.7893 moveto
+2832.8264 373.0148 3777.4504 359.5806 4108.7541 324.0734 curveto
+stroke
+0 0 0 edgecolor
+newpath 4109.2949 327.5351 moveto
+4118.8523 322.9627 lineto
+4108.5295 320.577 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 4109.2949 327.5351 moveto
+4118.8523 322.9627 lineto
+4108.5295 320.577 lineto
+closepath stroke
+grestore
+% [root] provider.azurerm (close)->[root] azurerm_storage_blob.file6
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2291.7335 365.0131 moveto
+2276.3873 363.0295 2260.4872 361.2349 2245.5 360 curveto
+1654.6356 311.3135 1498.8551 388.5897 906.2276 324.0844 curveto
+stroke
+0 0 0 edgecolor
+newpath 906.4682 320.5899 moveto
+896.146 322.978 lineto
+905.7045 327.5481 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 906.4682 320.5899 moveto
+896.146 322.978 lineto
+905.7045 327.5481 lineto
+closepath stroke
+grestore
+% [root] provider.azurerm (close)->[root] azurerm_storage_blob.file7
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2291.3802 365.0211 moveto
+2276.1425 363.0498 2260.3709 361.2575 2245.5 360 curveto
+1736.6774 316.974 1602.0663 380.6881 1091.364 324.1049 curveto
+stroke
+0 0 0 edgecolor
+newpath 1091.4748 320.5956 moveto
+1081.1477 322.9626 lineto
+1090.6969 327.5522 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1091.4748 320.5956 moveto
+1081.1477 322.9626 lineto
+1090.6969 327.5522 lineto
+closepath stroke
+grestore
+% [root] provider.azurerm (close)->[root] azurerm_storage_blob.file8
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2291.0249 365.049 moveto
+2275.8961 363.0878 2260.2537 361.2916 2245.5 360 curveto
+1818.6544 322.6318 1705.2592 372.8157 1276.3411 324.1103 curveto
+stroke
+0 0 0 edgecolor
+newpath 1276.4839 320.6038 moveto
+1266.1502 322.9413 lineto
+1275.6861 327.5582 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1276.4839 320.6038 moveto
+1266.1502 322.9413 lineto
+1275.6861 327.5582 lineto
+closepath stroke
+grestore
+% [root] provider.azurerm (close)->[root] azurerm_storage_blob.file9
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2290.6661 365.1108 moveto
+2275.647 363.1555 2260.1345 361.3454 2245.5 360 curveto
+1900.5847 328.2899 1808.454 364.9748 1461.2384 324.1101 curveto
+stroke
+0 0 0 edgecolor
+newpath 1461.4974 320.6164 moveto
+1451.1539 322.91 lineto
+1460.6702 327.5673 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1461.4974 320.6164 moveto
+1451.1539 322.91 lineto
+1460.6702 327.5673 lineto
+closepath stroke
+grestore
+% [root] root
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+2217.5 450 47.3916 18 ellipse_path stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+2189 446.3 moveto 57 ([root] root) alignedtext
+grestore
+% [root] root->[root] meta.count-boundary (EachMode fixup)
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2187.036 436.1177 moveto
+2164.5139 425.8544 2133.3989 411.6754 2107.5408 399.892 curveto
+stroke
+0 0 0 edgecolor
+newpath 2108.8287 396.6327 moveto
+2098.2776 395.6708 lineto
+2105.9259 403.0025 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2108.8287 396.6327 moveto
+2098.2776 395.6708 lineto
+2105.9259 403.0025 lineto
+closepath stroke
+grestore
+% [root] root->[root] provider.azurerm (close)
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2247.964 436.1177 moveto
+2270.8056 425.7089 2302.4855 411.2724 2328.5564 399.392 curveto
+stroke
+0 0 0 edgecolor
+newpath 2330.2325 402.4746 moveto
+2337.8809 395.1429 lineto
+2327.3298 396.1048 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2330.2325 402.4746 moveto
+2337.8809 395.1429 lineto
+2327.3298 396.1048 lineto
+closepath stroke
+grestore
+endpage
+showpage
+grestore
+%%PageTrailer
+%%EndPage: 1
+%%Trailer
+%%Pages: 1
+%%BoundingBox: 36 36 4330 512
+end
+restore
+%%EOF

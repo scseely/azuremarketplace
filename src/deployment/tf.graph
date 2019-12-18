@@ -1,0 +1,110 @@
+digraph {
+	compound = "true"
+	newrank = "true"
+	subgraph "root" {
+		"[root] azurerm_app_service_plan.app_service_plan" [label = "azurerm_app_service_plan.app_service_plan", shape = "box"]
+		"[root] azurerm_application_insights.app_insights" [label = "azurerm_application_insights.app_insights", shape = "box"]
+		"[root] azurerm_cdn_endpoint.cdn" [label = "azurerm_cdn_endpoint.cdn", shape = "box"]
+		"[root] azurerm_cdn_profile.cdn" [label = "azurerm_cdn_profile.cdn", shape = "box"]
+		"[root] azurerm_resource_group.rg" [label = "azurerm_resource_group.rg", shape = "box"]
+		"[root] azurerm_storage_account.az_backend" [label = "azurerm_storage_account.az_backend", shape = "box"]
+		"[root] azurerm_storage_blob.file1" [label = "azurerm_storage_blob.file1", shape = "box"]
+		"[root] azurerm_storage_blob.file10" [label = "azurerm_storage_blob.file10", shape = "box"]
+		"[root] azurerm_storage_blob.file11" [label = "azurerm_storage_blob.file11", shape = "box"]
+		"[root] azurerm_storage_blob.file12" [label = "azurerm_storage_blob.file12", shape = "box"]
+		"[root] azurerm_storage_blob.file13" [label = "azurerm_storage_blob.file13", shape = "box"]
+		"[root] azurerm_storage_blob.file14" [label = "azurerm_storage_blob.file14", shape = "box"]
+		"[root] azurerm_storage_blob.file15" [label = "azurerm_storage_blob.file15", shape = "box"]
+		"[root] azurerm_storage_blob.file16" [label = "azurerm_storage_blob.file16", shape = "box"]
+		"[root] azurerm_storage_blob.file17" [label = "azurerm_storage_blob.file17", shape = "box"]
+		"[root] azurerm_storage_blob.file18" [label = "azurerm_storage_blob.file18", shape = "box"]
+		"[root] azurerm_storage_blob.file19" [label = "azurerm_storage_blob.file19", shape = "box"]
+		"[root] azurerm_storage_blob.file2" [label = "azurerm_storage_blob.file2", shape = "box"]
+		"[root] azurerm_storage_blob.file3" [label = "azurerm_storage_blob.file3", shape = "box"]
+		"[root] azurerm_storage_blob.file4" [label = "azurerm_storage_blob.file4", shape = "box"]
+		"[root] azurerm_storage_blob.file5" [label = "azurerm_storage_blob.file5", shape = "box"]
+		"[root] azurerm_storage_blob.file6" [label = "azurerm_storage_blob.file6", shape = "box"]
+		"[root] azurerm_storage_blob.file7" [label = "azurerm_storage_blob.file7", shape = "box"]
+		"[root] azurerm_storage_blob.file8" [label = "azurerm_storage_blob.file8", shape = "box"]
+		"[root] azurerm_storage_blob.file9" [label = "azurerm_storage_blob.file9", shape = "box"]
+		"[root] azurerm_storage_container.web" [label = "azurerm_storage_container.web", shape = "box"]
+		"[root] provider.azurerm" [label = "provider.azurerm", shape = "diamond"]
+		"[root] var.base_name" [label = "var.base_name", shape = "note"]
+		"[root] var.location" [label = "var.location", shape = "note"]
+		"[root] azurerm_app_service_plan.app_service_plan" -> "[root] azurerm_resource_group.rg"
+		"[root] azurerm_application_insights.app_insights" -> "[root] azurerm_resource_group.rg"
+		"[root] azurerm_cdn_endpoint.cdn" -> "[root] azurerm_cdn_profile.cdn"
+		"[root] azurerm_cdn_profile.cdn" -> "[root] azurerm_resource_group.rg"
+		"[root] azurerm_resource_group.rg" -> "[root] provider.azurerm"
+		"[root] azurerm_resource_group.rg" -> "[root] var.base_name"
+		"[root] azurerm_resource_group.rg" -> "[root] var.location"
+		"[root] azurerm_storage_account.az_backend" -> "[root] azurerm_resource_group.rg"
+		"[root] azurerm_storage_blob.file1" -> "[root] azurerm_storage_container.web"
+		"[root] azurerm_storage_blob.file10" -> "[root] azurerm_storage_container.web"
+		"[root] azurerm_storage_blob.file11" -> "[root] azurerm_storage_container.web"
+		"[root] azurerm_storage_blob.file12" -> "[root] azurerm_storage_container.web"
+		"[root] azurerm_storage_blob.file13" -> "[root] azurerm_storage_container.web"
+		"[root] azurerm_storage_blob.file14" -> "[root] azurerm_storage_container.web"
+		"[root] azurerm_storage_blob.file15" -> "[root] azurerm_storage_container.web"
+		"[root] azurerm_storage_blob.file16" -> "[root] azurerm_storage_container.web"
+		"[root] azurerm_storage_blob.file17" -> "[root] azurerm_storage_container.web"
+		"[root] azurerm_storage_blob.file18" -> "[root] azurerm_storage_container.web"
+		"[root] azurerm_storage_blob.file19" -> "[root] azurerm_storage_container.web"
+		"[root] azurerm_storage_blob.file2" -> "[root] azurerm_storage_container.web"
+		"[root] azurerm_storage_blob.file3" -> "[root] azurerm_storage_container.web"
+		"[root] azurerm_storage_blob.file4" -> "[root] azurerm_storage_container.web"
+		"[root] azurerm_storage_blob.file5" -> "[root] azurerm_storage_container.web"
+		"[root] azurerm_storage_blob.file6" -> "[root] azurerm_storage_container.web"
+		"[root] azurerm_storage_blob.file7" -> "[root] azurerm_storage_container.web"
+		"[root] azurerm_storage_blob.file8" -> "[root] azurerm_storage_container.web"
+		"[root] azurerm_storage_blob.file9" -> "[root] azurerm_storage_container.web"
+		"[root] azurerm_storage_container.web" -> "[root] azurerm_storage_account.az_backend"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] azurerm_app_service_plan.app_service_plan"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] azurerm_application_insights.app_insights"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] azurerm_cdn_endpoint.cdn"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] azurerm_storage_blob.file1"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] azurerm_storage_blob.file10"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] azurerm_storage_blob.file11"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] azurerm_storage_blob.file12"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] azurerm_storage_blob.file13"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] azurerm_storage_blob.file14"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] azurerm_storage_blob.file15"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] azurerm_storage_blob.file16"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] azurerm_storage_blob.file17"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] azurerm_storage_blob.file18"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] azurerm_storage_blob.file19"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] azurerm_storage_blob.file2"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] azurerm_storage_blob.file3"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] azurerm_storage_blob.file4"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] azurerm_storage_blob.file5"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] azurerm_storage_blob.file6"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] azurerm_storage_blob.file7"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] azurerm_storage_blob.file8"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] azurerm_storage_blob.file9"
+		"[root] provider.azurerm (close)" -> "[root] azurerm_app_service_plan.app_service_plan"
+		"[root] provider.azurerm (close)" -> "[root] azurerm_application_insights.app_insights"
+		"[root] provider.azurerm (close)" -> "[root] azurerm_cdn_endpoint.cdn"
+		"[root] provider.azurerm (close)" -> "[root] azurerm_storage_blob.file1"
+		"[root] provider.azurerm (close)" -> "[root] azurerm_storage_blob.file10"
+		"[root] provider.azurerm (close)" -> "[root] azurerm_storage_blob.file11"
+		"[root] provider.azurerm (close)" -> "[root] azurerm_storage_blob.file12"
+		"[root] provider.azurerm (close)" -> "[root] azurerm_storage_blob.file13"
+		"[root] provider.azurerm (close)" -> "[root] azurerm_storage_blob.file14"
+		"[root] provider.azurerm (close)" -> "[root] azurerm_storage_blob.file15"
+		"[root] provider.azurerm (close)" -> "[root] azurerm_storage_blob.file16"
+		"[root] provider.azurerm (close)" -> "[root] azurerm_storage_blob.file17"
+		"[root] provider.azurerm (close)" -> "[root] azurerm_storage_blob.file18"
+		"[root] provider.azurerm (close)" -> "[root] azurerm_storage_blob.file19"
+		"[root] provider.azurerm (close)" -> "[root] azurerm_storage_blob.file2"
+		"[root] provider.azurerm (close)" -> "[root] azurerm_storage_blob.file3"
+		"[root] provider.azurerm (close)" -> "[root] azurerm_storage_blob.file4"
+		"[root] provider.azurerm (close)" -> "[root] azurerm_storage_blob.file5"
+		"[root] provider.azurerm (close)" -> "[root] azurerm_storage_blob.file6"
+		"[root] provider.azurerm (close)" -> "[root] azurerm_storage_blob.file7"
+		"[root] provider.azurerm (close)" -> "[root] azurerm_storage_blob.file8"
+		"[root] provider.azurerm (close)" -> "[root] azurerm_storage_blob.file9"
+		"[root] root" -> "[root] meta.count-boundary (EachMode fixup)"
+		"[root] root" -> "[root] provider.azurerm (close)"
+	}
+}
+

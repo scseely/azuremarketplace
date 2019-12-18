@@ -1,0 +1,7 @@
+div.hide {
+    display: none
+}
+
+div.show {
+    display: contents
+}
