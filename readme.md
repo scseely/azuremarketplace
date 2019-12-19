@@ -30,7 +30,6 @@ The following packages must be installed in order to deploy your portal:
 * [Azure Functions Core Tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local#install-the-azure-functions-core-tools): Allows for local development and debugging. Also used to upload to Azure.
 
 ## Optional software
-* [jq](https://stedolan.github.io/jq/): Used in the bash shell to allow a script to easily consume JSON. To install, just run `sudo apt-get install jq`.
 * [pyenv](https://github.com/pyenv/pyenv): For the Python back-end example, this is a handy way to install a Python environment which is compatible for use with Azure Functions Core Tools. If you have other mechanisms, great!
 * [Visual Studio Code](https://code.visualstudio.com/): While you can certainly use your tool of choice, VS Code has handy integrations for all things Azure. In our case, it integrates well with Azure Functions Core Tools and makes debugging easy. 
 
