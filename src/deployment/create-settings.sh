@@ -29,4 +29,4 @@ echo "window.authEnabled = true;"
 echo "window.autoLogin = false;"
 echo "window.debugging = true;"
 echo "window.requireConsent = true;"
-echo "window.instrumentationKey = $APPINSIGHTS_KEY";
+echo "window.instrumentationKey = \"$APPINSIGHTS_KEY\"";
