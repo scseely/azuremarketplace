@@ -63,4 +63,4 @@ function listAvailablePlans(bearer, token, subscriptionId, success) {
     });
 }
 
-function updateAzSubscription(subscriptionId, offerInfo.planId, activateSubscriptionSuccess);
+//function updateAzSubscription(subscriptionId, offerInfo.planId, activateSubscriptionSuccess);

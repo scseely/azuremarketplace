@@ -52,6 +52,11 @@ fi
 if [[ $ACTION  = 'apply' ]]; then
   chmod +x create-file-list.sh
   create-file-list.sh
+
+  # Force an update of all the web files, since Terraform doesn't update when the contents simply change.
+  az login --service-principal -u $service_principal_client_id -p $service_principal_client_secret --tenant $azure_ad_tenant_id
+  az storage blob delete-batch -s web --account-name $(echo $base_name)stg --pattern '*'
+  az logout
 fi
 
 # Generate the settings.js file
