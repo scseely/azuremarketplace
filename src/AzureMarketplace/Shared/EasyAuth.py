@@ -1,4 +1,7 @@
 from urllib import request, parse
+import sys
+import os
+sys.path.append(os.path.abspath(""))
 from Shared.EnvironmentVariables import environment_variables
 import json
 

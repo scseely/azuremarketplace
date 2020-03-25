@@ -1,5 +1,6 @@
 import logging
-
+import sys
+sys.path.append(os.path.abspath(""))
 import azure.functions as func
 
 

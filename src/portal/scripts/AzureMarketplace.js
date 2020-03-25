@@ -15,7 +15,10 @@ function resolveBearer(bearer, token, success) {
             'X-ZUMO-AUTH': token,
         },
         contentType: 'application/json',
-        success: success
+        success: success,
+
+    }).fail(function(jqXhr, textStatus, errorThrown) {
+        alert( textStatus + " " + errorThrown);
     });
 }
 
@@ -23,14 +26,12 @@ function onError(xhr, status, error){
     console.log(status + "  " + error);
 }
 
-function activateOffer(bearer, token, subscriptionId, planId, success) {
+function activateOffer(token, subscriptionId, planId, success) {
     let activateOfferUrl = window.apiBaseUrl + "/api/ActivateOffer";
 
     $.post({
         url: activateOfferUrl,
         data: JSON.stringify({
-            authentication_token: token,
-            bearer: bearer,
             subscription_id: subscriptionId,
             plan_id: planId,
         }),
@@ -44,14 +45,12 @@ function activateOffer(bearer, token, subscriptionId, planId, success) {
     });
 }
 
-function listAvailablePlans(bearer, token, subscriptionId, success) {
+function listAvailablePlans(token, subscriptionId, success) {
     let listPlansUrl = window.apiBaseUrl + "/api/ListPlans";
 
     $.post({
         url: listPlansUrl,
         data: JSON.stringify({
-            authentication_token: token,
-            bearer: bearer,
             subscription_id: subscriptionId,
         }),
         dataType: 'json',

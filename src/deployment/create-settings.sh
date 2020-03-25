@@ -26,7 +26,7 @@ exec 1>>$SETTINGS_JS_FILE
 echo "window.appBaseUrl = 'https://$base_name""func.azurewebsites.net';"
 echo "window.apiBaseUrl = 'https://$base_name""func.azurewebsites.net';"
 echo "window.authEnabled = true;"
-echo "window.autoLogin = false;"
-echo "window.debugging = true;"
-echo "window.requireConsent = true;"
+echo "window.autoLogin = true;"
+echo "window.debugging = false;"
+echo "window.requireConsent = false;"
 echo "window.instrumentationKey = \"$APPINSIGHTS_KEY\"";

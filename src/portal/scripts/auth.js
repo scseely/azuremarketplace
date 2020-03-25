@@ -1,7 +1,7 @@
 const AUTH_INFO_KEY = 'authInfo';
 const TOKEN_PARAM = 'token';
 const BEARER_PARAM = 'bearer';
-
+//https://portal.seelyinc.com/index.html?token=YD1skg5UfKI0EO9aPGPG0lsoLZA3cgskLD%2BNtG85QAR886U8OjrB1Hgj0VWhqpGZ35nctw2c4RvqDSu1TJHm397CKQMhcCI0cbLlT18UKAHWVjjlWcM9kATUyhPFv0hcQktD%2BYWTwuheBJLrO3tB7hquTh2ITjIXyvBhFvRHjxkt3gtwd2Ap%2BIePT1kssvI5u6NpAOxQD4uFfr4f2GkOd3cyRrxiGFvtFTpI47rD%2BSo69IXF%2FgXMKrVCc0g0pwDIC5vnT58iCEyF%2BW8zsrmpQw%3D%3D
 function fillInUserIdentity(authInfo, pageUrl){
     let hashString = '?' + pageUrl.hash.substr(1);
     let urlParams = new URLSearchParams(hashString);
@@ -39,12 +39,12 @@ function setupAuth() {
         return authInfo;
     }
 
-    let redirectUrl = pageUrl.origin + pageUrl.pathname + pageUrl.search;
+    let redirectUrl = pageUrl.origin + pageUrl.pathname;
     let encodedUrl = encodeURIComponent(redirectUrl);
     let bearer = '';
 
-    if (pageUrl.searchParams.has(BEARER_PARAM)){
-        bearer = pageUrl.searchParams.get(BEARER_PARAM);
+    if (pageUrl.searchParams.has(TOKEN_PARAM)){
+        bearer = pageUrl.searchParams.get(TOKEN_PARAM);
         sessionStorage.setItem(BEARER_PARAM, bearer);
     } else {
         bearer = sessionStorage.getItem(BEARER_PARAM);

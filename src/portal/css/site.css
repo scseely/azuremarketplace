@@ -5,3 +5,13 @@ div.hide {
 div.show {
     display: contents
 }
+
+div.logo {
+    background-image: url("../images/logo216x216.png");
+    background-repeat: no-repeat;
+    min-height: 216px;
+    text-align: right;
+    font-size: 100px;
+    vertical-align: middle;
+    line-height: 216px;
+}

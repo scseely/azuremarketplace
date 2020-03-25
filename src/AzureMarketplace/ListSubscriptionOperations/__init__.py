@@ -2,6 +2,8 @@ import logging
 import json
 import azure.functions as func
 import os
+import sys
+sys.path.append(os.path.abspath(""))
 from Shared.AzureMarketplaceApi import azure_marketplace_api
 
 

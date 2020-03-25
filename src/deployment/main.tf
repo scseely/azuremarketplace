@@ -81,7 +81,7 @@ resource "azurerm_function_app" "apis" {
     WEBSITE_NODE_DEFAULT_VERSION    = "10.14.1"
     XDG_CACHE_HOME                  = "/tmp/.cache"
 
-    USE_SAAS_MOCK_API               = "true"
+    USE_SAAS_MOCK_API               = "false"
     APP_SERVICE_URL                 = "https://${var.base_name}func.azurewebsites.net"
     AAD_APP_CLIENT_ID               = var.aad_app_client_id
     AAD_APP_CLIENT_PASSWORD         = var.aad_app_client_password

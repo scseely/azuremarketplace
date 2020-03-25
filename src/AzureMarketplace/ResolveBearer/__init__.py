@@ -2,9 +2,12 @@ import logging
 import json
 import azure.functions as func
 import os
+import sys
+sys.path.append(os.path.abspath(""))
+from Shared.EasyAuth import easy_auth
 from Shared.AzureMarketplaceApi import azure_marketplace_api
 from Shared.EnvironmentVariables import environment_variables
-from Shared.EasyAuth import easy_auth
+
 
 
 class resolve_bearer_result:

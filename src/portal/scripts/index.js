@@ -35,17 +35,23 @@ function listAvailablePlansSuccess(data) {
 function activateSubscriptionSuccess(data) {
     let offerInfo = window.planInfo.offerInfo;
     let authInfo = window.auth;
-    listAvailablePlans(authInfo.bearer, authInfo.token, offerInfo.id, listAvailablePlansSuccess);
+    listAvailablePlans(authInfo.token, offerInfo.id, listAvailablePlansSuccess);
 }
 
-function addBearerIfMissing() {
+function addTokenIfMissing() {
     if (window.debugging) {
         let pageUrl = new URL(window.location.href);
-        if (pageUrl.searchParams.has(BEARER_PARAM)) {
+        let hashString = '?' + pageUrl.hash.substr(1);
+        let urlParams = new URLSearchParams(hashString);
+        if (urlParams.has(TOKEN_PARAM)){
             return false;
         }
-
-        pageUrl.searchParams.append(BEARER_PARAM, 'someToken');
+        if (pageUrl.searchParams.has(TOKEN_PARAM)) {
+            return false;
+        }
+        localStorage.clear();
+        sessionStorage.clear();
+        pageUrl.searchParams.append(TOKEN_PARAM, '7r%2B8p4QuaEnrQk45SJjNw6g8abMe3Goe6B8vKpn6LglOq%2Bmef%2FL77K45%2BetH5Lbu3%2Fz7H3Xhte7MHlhRCpKURnjPa35x49oq5Kp7OHCR8AsFO2AiWK3LhvhQOENIK5OOO%2F3RlfAxPj8snZW%2F4Z90sv4gq42EglGjHgHck0sfjNwNoZ2%2FhzWwfzh02Gzik4jf0JNikL2kX1M840FtgtymYVcZueRR%2BsrkyEVksw35NNLSCJ3Yy0HS9vaSnVubWTWo3%2BAYTeqw8%2FZZOZHxp9AMlA%3D%3D');
 
         window.location.href = pageUrl.toString();
         return true;
@@ -54,7 +60,7 @@ function addBearerIfMissing() {
 }
 
 $(function(){
-    if (addBearerIfMissing()) {
+    if (addTokenIfMissing()) {
         return;
     }
 
@@ -89,7 +95,7 @@ function clearStorage() {
 function activateSubscription() {
     let offerInfo = window.planInfo.offerInfo;
     let authInfo = window.auth;
-    activateOffer(authInfo.bearer, authInfo.token, offerInfo.id, offerInfo.planId, activateSubscriptionSuccess);
+    activateOffer(authInfo.token, offerInfo.id, offerInfo.planId, activateSubscriptionSuccess);
 }
 
 function updateSubscription() {

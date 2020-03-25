@@ -3,6 +3,8 @@ import json
 import uuid
 from urllib import request, parse
 from urllib.error import URLError, HTTPError
+import sys
+sys.path.append(os.path.abspath(""))
 from Shared.EnvironmentVariables import environment_variables
 from Shared.EasyAuth import app_auth
 
@@ -36,29 +38,30 @@ class azure_marketplace_api:
         self.app_auth = app_auth()
         
     def create_bearer(self, bearer):
-        return 'bearer {}'.format(bearer)
+        return 'Bearer {}'.format(bearer)
 
-    def activate(self, bearer, token, subscription_id, plan_id):
-        resolve_uri = '{}{}/activate?api-version={}&token={}'.format(
+    def activate(self, subscription_id, plan_id):
+        activate_uri = '{}{}/activate?api-version={}'.format(
             self.base_uri, 
             subscription_id,
-            self.api_version, 
-            bearer)
+            self.api_version)
 
         plan_value = marketplace_plan(plan_id)
         request_data = json.dumps(plan_value, default=lambda o: o.__dict__)
         request_bytes = request_data.encode('utf-8')
-        req = request.Request(resolve_uri, method='POST', data = request_bytes)
-        req.add_header(self.MARKETPLACE_TOKEN_HEADER, token)
+        req = request.Request(activate_uri, method='POST', data = request_bytes)
+        bearer = self.app_auth.auth_portal() 
         req.add_header(self.AUTHORIZATION_HEADER, self.create_bearer(bearer))
         req.add_header(self.CONTENT_TYPE_HEADER, self.MIME_TYPE_JSON)
         resp = request.urlopen(req)
         if resp.code == 200:
             return True
+        # if (resp.code == 400):
+            
         return False
 
     def change_subscription_plan(self, subscription_id, plan_id): 
-        resolve_uri = '{}{}?api-version={}'.format(
+        change_subscription_uri = '{}{}?api-version={}'.format(
             self.base_uri, 
             subscription_id,
             self.api_version)
@@ -71,7 +74,7 @@ class azure_marketplace_api:
         request_data = json.dumps(plan_value, default=lambda o: o.__dict__)
         request_bytes = request_data.encode('utf-8')
         bearer = self.app_auth.auth_portal()
-        req = request.Request(resolve_uri, method='PATCH', data = request_bytes)
+        req = request.Request(change_subscription_uri, method='PATCH', data = request_bytes)
         req.add_header(self.AUTHORIZATION_HEADER, self.create_bearer(bearer))
         req.add_header(self.CONTENT_TYPE_HEADER, self.MIME_TYPE_JSON)
         try:
@@ -86,7 +89,7 @@ class azure_marketplace_api:
         return False
 
     def change_subscription_quantity(self, subscription_id, quantity): 
-        resolve_uri = '{}{}?api-version={}'.format(
+        change_subscription_uri = '{}{}?api-version={}'.format(
             self.base_uri, 
             subscription_id,
             self.api_version)
@@ -100,7 +103,7 @@ class azure_marketplace_api:
         request_data = json.dumps(quantity_value, default=lambda o: o.__dict__)
         request_bytes = request_data.encode('utf-8')
         bearer = self.app_auth.auth_portal()
-        req = request.Request(resolve_uri, method='PATCH', data = request_bytes)
+        req = request.Request(change_subscription_uri, method='PATCH', data = request_bytes)
         req.add_header(self.AUTHORIZATION_HEADER, self.create_bearer(bearer))
         req.add_header(self.CONTENT_TYPE_HEADER, self.MIME_TYPE_JSON)
         try:
@@ -115,13 +118,13 @@ class azure_marketplace_api:
         return False
 
     def delete_subscription(self, subscription_id): 
-        resolve_uri = '{}{}?api-version={}'.format(
+        delete_uri = '{}{}?api-version={}'.format(
             self.base_uri, 
             subscription_id,
             self.api_version)
 
         bearer = self.app_auth.auth_portal()
-        req = request.Request(resolve_uri, method='DELETE')
+        req = request.Request(delete_uri, method='DELETE')
         req.add_header(self.AUTHORIZATION_HEADER, self.create_bearer(bearer))
         resp_code = 0
 
@@ -145,14 +148,15 @@ class azure_marketplace_api:
             (operation_id != 'ea0b5d24-112b-4fc0-a6fc-44f3b8119458'):
             operation_id = 'ea0b5d24-112b-4fc0-a6fc-44f3b8119458'
 
-        resolve_uri = '{}{}/operations/{}?api-version={}'.format(
+        get_operation_uri = '{}{}/operations/{}?api-version={}'.format(
             self.base_uri, 
             subscription_id,
             operation_id,
-            self.api_version)
+            self.api_version
+            )
 
         bearer = self.app_auth.auth_portal()
-        req = request.Request(resolve_uri, method='GET')
+        req = request.Request(get_operation_uri, method='GET')
         req.add_header(self.AUTHORIZATION_HEADER, self.create_bearer(bearer))
         resp_code = 0
 
@@ -186,15 +190,14 @@ class azure_marketplace_api:
         data = json.load(resp)
         return data
 
-    def list_available_plans(self, bearer, token, subscription_id):
-        resolve_uri = '{}{}/listAvailablePlans?api-version={}&token={}'.format(
+    def list_available_plans(self, subscription_id):
+        list_uri = '{}{}/listAvailablePlans?api-version={}'.format(
             self.base_uri, 
             subscription_id,
-            self.api_version, 
-            bearer)
+            self.api_version)
 
-        req = request.Request(resolve_uri, method='GET')
-        req.add_header(self.MARKETPLACE_TOKEN_HEADER, token)
+        req = request.Request(list_uri, method='GET')
+        bearer = self.app_auth.auth_portal()
         req.add_header(self.AUTHORIZATION_HEADER, self.create_bearer(bearer))
         req.add_header(self.CONTENT_TYPE_HEADER, self.MIME_TYPE_JSON)
         resp = request.urlopen(req)
@@ -207,9 +210,9 @@ class azure_marketplace_api:
             # acknowledges
             subscription_id = '37f9dea2-4345-438f-b0bd-03d40d28c7e0'
         
-        resolve_uri = '{}/{}/operations?api-version={}'.format(self.base_uri, subscription_id, self.api_version)
+        list_uri = '{}/{}/operations?api-version={}'.format(self.base_uri, subscription_id, self.api_version)
         
-        req = request.Request(resolve_uri, method='GET')
+        req = request.Request(list_uri, method='GET')
         bearer = self.app_auth.auth_portal() 
         req.add_header(self.AUTHORIZATION_HEADER, self.create_bearer(bearer))
 
@@ -218,8 +221,8 @@ class azure_marketplace_api:
         return data
 
     def list_subscriptions(self):
-        resolve_uri = '{}?api-version={}'.format(self.base_uri, self.api_version)
-        req = request.Request(resolve_uri, method='GET')
+        list_uri = '{}?api-version={}'.format(self.base_uri, self.api_version)
+        req = request.Request(list_uri, method='GET')
         bearer = self.app_auth.auth_portal() 
         req.add_header(self.AUTHORIZATION_HEADER, self.create_bearer(bearer))
 
@@ -227,11 +230,13 @@ class azure_marketplace_api:
         data = json.load(resp)
         return data
 
-    async def resolve(self, bearer, token): 
+    async def resolve(self, bearer, token):
+        bearer = parse.unquote(bearer)
         resolve_uri = '{}resolve?api-version={}&token={}'.format(self.base_uri, self.api_version, bearer)
         req = request.Request(resolve_uri, method='POST')
-        req.add_header(self.MARKETPLACE_TOKEN_HEADER, token)
-        req.add_header(self.AUTHORIZATION_HEADER, self.create_bearer(bearer))
+        req.add_header(self.MARKETPLACE_TOKEN_HEADER, bearer)
+        app_bearer = self.app_auth.auth_portal()
+        req.add_header(self.AUTHORIZATION_HEADER, self.create_bearer(app_bearer))
 
         resp = request.urlopen(req)
         data = json.load(resp)
@@ -245,12 +250,12 @@ class azure_marketplace_api:
             operation_id = "74dfb4db-c193-4891-827d-eb05fbdc64b0"
             plan_id = "Platinum"
 
-        resolve_uri = '{}{}/operations/{}?api-version={}'.format(self.base_uri, subscription_id, operation_id, self.api_version)
+        update_uri = '{}{}/operations/{}?api-version={}'.format(self.base_uri, subscription_id, operation_id, self.api_version)
         
         operation_value = marketplace_operation_status(plan_id, quantity, "Success" if success else "Failure")
         request_data = json.dumps(operation_value, default=lambda o: o.__dict__)
         request_bytes = request_data.encode('utf-8')
-        req = request.Request(resolve_uri, method='PATCH', data = request_bytes)        
+        req = request.Request(update_uri, method='PATCH', data = request_bytes)        
         bearer = self.app_auth.auth_portal() 
         req.add_header(self.AUTHORIZATION_HEADER, self.create_bearer(bearer))
         req.add_header(self.CONTENT_TYPE_HEADER, self.MIME_TYPE_JSON)

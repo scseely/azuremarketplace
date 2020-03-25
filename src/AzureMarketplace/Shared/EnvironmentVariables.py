@@ -1,4 +1,6 @@
 import os
+import sys
+sys.path.append(os.path.abspath(""))
 
 class environment_variables:
     def __init__(self):
