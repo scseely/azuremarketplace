@@ -1,0 +1,896 @@
+openapi: 3.0.0
+servers:
+# Added by API Auto Mocking Plugin
+  - description: SaaS fulfillment APIs, version 2
+    url: https://marketplaceapi.microsoft.com/api/saas/subscriptions/
+info:
+  version: "1.0.0"
+  title: SaaS fulfillment APIs, version 2
+  description: >-
+    This spec details the APIs that enable partners to sell their SaaS applications in the AppSource marketplace and the Azure Marketplace. These APIs are a requirement for transactable SaaS offers on the AppSource and Azure Marketplace.
+security:
+  - application:
+      - read
+      - write
+paths:
+  /resolve:
+    post:
+      summary: Resolve a subscription
+      description: >-
+        The resolve endpoint enables the publisher to resolve a marketplace token to a persistent resource ID. The resource ID is the unique identifier for a SaaS subscription. When a user is redirected to a partner's website, the URL contains a token in the query parameters. The partner is expected to use this token and make a request to resolve it. The response contains the unique SaaS subscription ID, name, offer ID, and plan for the resource. This token is valid for one hour only.
+      parameters:
+        - in: query
+          name: ApiVersion
+          schema:
+            $ref: '#/components/schemas/ApiVersion'
+          required: true
+          description: Version of the API. 
+        - in: header
+          name: Content-Type
+          description: application/json
+          schema:
+            type: string
+            enum: 
+              - "application/json"
+          required: true
+        - in: header
+          name: x-ms-requestid
+          description: A unique string value for tracking the request from the client, preferably a GUID. If this value isn't provided, one will be generated and provided in the response headers.
+          schema:
+            type: string
+            format: uuid
+          required: false
+        - in: header
+          name: x-ms-correlationid
+          description: A unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value isn't provided, one will be generated and provided in the response headers.
+          schema:
+            type: string
+            format: uuid
+          required: false
+        - in: header
+          name: Authorization
+          description: Get a [JSON web token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app), JWT, bearer token. 
+          schema:
+            type: string
+          required: true          
+        - in: header
+          name: x-ms-marketplace-token
+          description: The token query parameter in the URL when the user is redirected to the SaaS partner's website from Azure (for example,  https://contoso.com/signup?token=..). Note, The URL decodes the token value from the browser before using it. 
+          schema:
+            type: string
+            format: uuid
+          required: false   
+      responses:
+        '200':
+          description: OK. Describes the SaaS subscription indicated by the x-ms-marketplace-token.
+          content: 
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubscriptionSummary'
+
+        '400':
+          description: Bad request. x-ms-marketplace-token is missing, malformed, or expired.
+        
+        '403':
+          description: Unauthorized. The authentication token was not provided or is invalid, or the request is attempting to access an acquisition that does not belong to the current publisher.
+          
+        '404':
+          description: Not found.
+          
+        '500':
+          description: Internal server error.
+          content: 
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+                
+  /:
+    get:
+      summary: List subscriptions
+      description: Lists all the SaaS subscriptions for a publisher.
+      parameters:
+        - in: query
+          name: ApiVersion
+          schema:
+            $ref: '#/components/schemas/ApiVersion'
+          required: true
+          description: Version of the API. 
+        - in: header
+          name: Content-Type
+          description: application/json
+          schema:
+            type: string
+            enum: 
+              - "application/json"
+          required: true
+        - in: header
+          name: x-ms-requestid
+          description: A unique string value for tracking the request from the client, preferably a GUID. If this value isn't provided, one will be generated and provided in the response headers.
+          schema:
+            type: string
+            format: uuid
+          required: false
+        - in: header
+          name: x-ms-correlationid
+          description: A unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value isn't provided, one will be generated and provided in the response headers.
+          schema:
+            type: string
+            format: uuid
+          required: false
+        - in: header
+          name: Authorization
+          description: Get a [JSON web token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app), JWT, bearer token. 
+          schema:
+            type: string
+          required: true  
+      responses:
+        '200':
+          description: OK. Gets the publisher and corresponding subscriptions for all the publisher's offers, based on the authentication token.
+          content: 
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubscriptionsResponse'   
+        '403':
+          description: Unauthorized. The authentication token was not provided or is invalid, or the request is attempting to access an acquisition that does not belong to the current publisher.
+          
+        '500':
+          description: Internal server error.
+          content: 
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /{subscriptionId}:
+    get:
+      summary: List subscriptions
+      description: Lists all the SaaS subscriptions for a publisher.
+      parameters:
+        - in: path
+          name: subscriptionId
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - in: query
+          name: ApiVersion
+          schema:
+            $ref: '#/components/schemas/ApiVersion'
+          required: true
+          description: Version of the API. 
+        - in: header
+          name: Content-Type
+          description: application/json
+          schema:
+            type: string
+            enum: 
+              - "application/json"
+          required: true
+        - in: header
+          name: x-ms-requestid
+          description: A unique string value for tracking the request from the client, preferably a GUID. If this value isn't provided, one will be generated and provided in the response headers.
+          schema:
+            type: string
+            format: uuid
+          required: false
+        - in: header
+          name: x-ms-correlationid
+          description: A unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value isn't provided, one will be generated and provided in the response headers.
+          schema:
+            type: string
+            format: uuid
+          required: false
+        - in: header
+          name: Authorization
+          description: Get a [JSON web token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app), JWT, bearer token. 
+          schema:
+            type: string
+          required: true  
+      responses:
+        '200':
+          description: OK. Gets the SaaS subscription from identifier. 
+          content: 
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Subscription' 
+        '403':
+          description: Unauthorized. The authentication token was not provided or is invalid, or the request is attempting to access an acquisition that does not belong to the current publisher.
+          
+        '404':
+          description: Not found.
+          
+        '500':
+          description: Internal server error.
+          content: 
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'  
+                
+    patch:
+      summary: Patch a subscription
+      description: Use this call to update the plan, the user count (quantity), or both.
+      parameters:
+        - in: path
+          name: subscriptionId
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - in: query
+          name: ApiVersion
+          schema:
+            $ref: '#/components/schemas/ApiVersion'
+          required: true
+          description: Version of the API. 
+        - in: header
+          name: Content-Type
+          description: application/json
+          schema:
+            type: string
+            enum: 
+              - "application/json"
+          required: true
+        - in: header
+          name: x-ms-requestid
+          description: A unique string value for tracking the request from the client, preferably a GUID. If this value isn't provided, one will be generated and provided in the response headers.
+          schema:
+            type: string
+            format: uuid
+          required: false
+        - in: header
+          name: x-ms-correlationid
+          description: A unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value isn't provided, one will be generated and provided in the response headers.
+          schema:
+            type: string
+            format: uuid
+          required: false
+        - in: header
+          name: Authorization
+          description: Get a [JSON web token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app), JWT, bearer token. 
+          schema:
+            type: string
+          required: true  
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              anyOf:
+                - $ref: '#/components/schemas/PlanIdType'
+                - $ref: '#/components/schemas/QuantityType'    
+      responses:
+        '202':
+          description: The request to change plan and/or quantity has been accepted. The partner is expected to poll the Operation-Location to determine a success or failure. 
+        '400':
+          description: Bad request. Validation failures.
+        '403':
+          description: Unauthorized. The authentication token was not provided or is invalid, or the request is attempting to access an acquisition that does not belong to the current publisher.
+          
+        '404':
+          description: Not found.
+          
+        '500':
+          description: Internal server error.
+          content: 
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    delete:
+      summary: Delete a subscription
+      description: Unsubscribe and delete the specified subscription.
+      parameters:
+        - in: path
+          name: subscriptionId
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - in: query
+          name: ApiVersion
+          schema:
+            $ref: '#/components/schemas/ApiVersion'
+          required: true
+          description: Version of the API. 
+        - in: header
+          name: Content-Type
+          description: application/json
+          schema:
+            type: string
+            enum: 
+              - "application/json"
+          required: true
+        - in: header
+          name: x-ms-requestid
+          description: A unique string value for tracking the request from the client, preferably a GUID. If this value isn't provided, one will be generated and provided in the response headers.
+          schema:
+            type: string
+            format: uuid
+          required: false
+        - in: header
+          name: x-ms-correlationid
+          description: A unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value isn't provided, one will be generated and provided in the response headers.
+          schema:
+            type: string
+            format: uuid
+          required: false
+        - in: header
+          name: Authorization
+          description: Get a [JSON web token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app), JWT, bearer token. 
+          schema:
+            type: string
+          required: true  
+ 
+      responses:
+        '202':
+          description: The partner initiated a call to unsubscribe a SaaS subscription.
+        '400':
+          description: Delete on a subscription with Delete not in allowedCustomerOperations.
+        '403':
+          description: Unauthorized. The authentication token was not provided or is invalid, or the request is attempting to access an acquisition that does not belong to the current publisher.
+          
+        '404':
+          description: Not found.
+          
+        '500':
+          description: Internal server error.
+          content: 
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'                      
+  /{subscriptionId}/listAvailablePlans:
+    get:
+      summary: List available plans
+      description: Use this call to find out if there are any private or public offers for the current publisher.
+      parameters:
+        - in: path
+          name: subscriptionId
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - in: query
+          name: ApiVersion
+          schema:
+            $ref: '#/components/schemas/ApiVersion'
+          required: true
+          description: Version of the API. 
+        - in: header
+          name: Content-Type
+          description: application/json
+          schema:
+            type: string
+            enum: 
+              - "application/json"
+          required: true
+        - in: header
+          name: x-ms-requestid
+          description: A unique string value for tracking the request from the client, preferably a GUID. If this value isn't provided, one will be generated and provided in the response headers.
+          schema:
+            type: string
+            format: uuid
+          required: false
+        - in: header
+          name: x-ms-correlationid
+          description: A unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value isn't provided, one will be generated and provided in the response headers.
+          schema:
+            type: string
+            format: uuid
+          required: false
+        - in: header
+          name: Authorization
+          description: Get a [JSON web token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app), JWT, bearer token. 
+          schema:
+            type: string
+          required: true  
+      responses:
+        '200':
+          description: OK. Gets the SaaS subscription from identifier. 
+          content: 
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlansResponse' 
+        '403':
+          description: Unauthorized. The authentication token was not provided or is invalid, or the request is attempting to access an acquisition that does not belong to the current publisher.
+          
+        '404':
+          description: Not found.
+          
+        '500':
+          description: Internal server error.
+          content: 
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+                
+  /{subscriptionId}/activate:
+    post:
+      summary: Activate a subscription
+      description: Use this call to activate a subscription.
+      parameters:
+        - in: path
+          name: subscriptionId
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - in: query
+          name: ApiVersion
+          schema:
+            $ref: '#/components/schemas/ApiVersion'
+          required: true
+          description: Version of the API. 
+        - in: header
+          name: Content-Type
+          description: application/json
+          schema:
+            type: string
+            enum: 
+              - "application/json"
+          required: true
+        - in: header
+          name: x-ms-requestid
+          description: A unique string value for tracking the request from the client, preferably a GUID. If this value isn't provided, one will be generated and provided in the response headers.
+          schema:
+            type: string
+            format: uuid
+          required: false
+        - in: header
+          name: x-ms-correlationid
+          description: A unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value isn't provided, one will be generated and provided in the response headers.
+          schema:
+            type: string
+            format: uuid
+          required: false
+        - in: header
+          name: Authorization
+          description: Get a [JSON web token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app), JWT, bearer token. 
+          schema:
+            type: string
+          required: true  
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubscriberPlan'
+      responses:
+        '200':
+          description: Activates the subscription.
+        '400':
+          description: Bad request. Validation failures.
+        '403':
+          description: Unauthorized. The authentication token was not provided or is invalid, or the request is attempting to access an acquisition that does not belong to the current publisher.
+          
+        '404':
+          description: Not found.
+          
+        '500':
+          description: Internal server error.
+          content: 
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+                
+  /{subscriptionId}/operations:
+    get:
+      summary: List outstanding operations
+      description: Lists the outstanding operations for the current publisher.
+      parameters:
+        - in: path
+          name: subscriptionId
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - in: query
+          name: ApiVersion
+          schema:
+            $ref: '#/components/schemas/ApiVersion'
+          required: true
+          description: Version of the API. 
+        - in: header
+          name: Content-Type
+          description: application/json
+          schema:
+            type: string
+            enum: 
+              - "application/json"
+          required: true
+        - in: header
+          name: x-ms-requestid
+          description: A unique string value for tracking the request from the client, preferably a GUID. If this value isn't provided, one will be generated and provided in the response headers.
+          schema:
+            type: string
+            format: uuid
+          required: false
+        - in: header
+          name: x-ms-correlationid
+          description: A unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value isn't provided, one will be generated and provided in the response headers.
+          schema:
+            type: string
+            format: uuid
+          required: false
+        - in: header
+          name: Authorization
+          description: Get a [JSON web token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app), JWT, bearer token. 
+          schema:
+            type: string
+          required: true  
+      responses:
+        '200':
+          description: OK. Gets the SaaS subscription from identifier. 
+          content: 
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationList' 
+        '400':
+          description: Bad request; validation failures.
+          
+        '403':
+          description: Unauthorized. The authentication token was not provided or is invalid, or the request is attempting to access an acquisition that does not belong to the current publisher.
+          
+        '404':
+          description: Not found.
+          
+        '500':
+          description: Internal server error.
+          content: 
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'  
+                
+  /{subscriptionId}/operations/{operationId}:
+    get:
+      summary: Get operation status
+      description: Enables the publisher to track the status of the specified triggered async operation (such as Subscribe, Unsubscribe, ChangePlan, or ChangeQuantity).
+      parameters:
+        - in: path
+          name: subscriptionId
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - in: path
+          name: operationId
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - in: query
+          name: ApiVersion
+          schema:
+            $ref: '#/components/schemas/ApiVersion'
+          required: true
+          description: Version of the API. 
+        - in: header
+          name: Content-Type
+          description: application/json
+          schema:
+            type: string
+            enum: 
+              - "application/json"
+          required: true
+        - in: header
+          name: x-ms-requestid
+          description: A unique string value for tracking the request from the client, preferably a GUID. If this value isn't provided, one will be generated and provided in the response headers.
+          schema:
+            type: string
+            format: uuid
+          required: false
+        - in: header
+          name: x-ms-correlationid
+          description: A unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value isn't provided, one will be generated and provided in the response headers.
+          schema:
+            type: string
+            format: uuid
+          required: false
+        - in: header
+          name: Authorization
+          description: Get a [JSON web token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app), JWT, bearer token. 
+          schema:
+            type: string
+          required: true  
+      responses:
+        '200':
+          description: OK. Gets the SaaS subscription from identifier. 
+          content: 
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationType' 
+        '400':
+          description: Bad request; validation failures.
+          
+        '403':
+          description: Unauthorized. The authentication token was not provided or is invalid, or the request is attempting to access an acquisition that does not belong to the current publisher.
+          
+        '404':
+          description: Not found.
+          
+        '500':
+          description: Internal server error.
+          content: 
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'  
+                        
+    patch:
+      summary: Update the status of an operation
+      description: Update the status of an operation to indicate success or failure with the provided values.
+      parameters:
+        - in: path
+          name: subscriptionId
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - in: path
+          name: operationId
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - in: query
+          name: ApiVersion
+          schema:
+            $ref: '#/components/schemas/ApiVersion'
+          required: true
+          description: Version of the API. 
+        - in: header
+          name: Content-Type
+          description: application/json
+          schema:
+            type: string
+            enum: 
+              - "application/json"
+          required: true
+        - in: header
+          name: x-ms-requestid
+          description: A unique string value for tracking the request from the client, preferably a GUID. If this value isn't provided, one will be generated and provided in the response headers.
+          schema:
+            type: string
+            format: uuid
+          required: false
+        - in: header
+          name: x-ms-correlationid
+          description: A unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value isn't provided, one will be generated and provided in the response headers.
+          schema:
+            type: string
+            format: uuid
+          required: false
+        - in: header
+          name: Authorization
+          description: Get a [JSON web token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app), JWT, bearer token. 
+          schema:
+            type: string
+          required: true  
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              anyOf:
+                - $ref: '#/components/schemas/PlanIdType'
+                - $ref: '#/components/schemas/QuantityType'        
+                - $ref: '#/components/schemas/StatusType'  
+      responses:
+        '200':
+          description: A call to inform of completion of an operation on the partner side. For example, this response could signal the change of seats or plans. 
+
+        '400':
+          description: Bad request; validation failures.
+          
+        '403':
+          description: Unauthorized. The authentication token was not provided or is invalid, or the request is attempting to access an acquisition that does not belong to the current publisher.
+          
+        '404':
+          description: Not found.
+          
+        '409':
+          description: Conflict. For example, a newer transaction is already fulfilled.
+          
+        '500':
+          description: Internal server error.
+          content: 
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'  
+                
+components:
+  schemas:
+    ApiVersion:
+      type: string
+      description: Version of the API. Use 2018-08-31 for production, 2018-09-15 for the Mock API.
+      enum:
+        - "2018-08-31"
+        - "2018-09-15"
+    SubscriptionSummary:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        subscriptionName:
+          type: string
+        offerId:
+          type: string
+        planId:
+          type: string
+        quantity:
+          type: integer
+          format: int64
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+            message:
+              type: string
+              
+    SubscriptionsResponse:
+      type: object
+      properties:
+        subscriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Subscription'
+        '@nextLink':
+          type: string
+          description: Link to get the next set of subscriptions.
+          format: uri
+          
+    Subscription:
+      type: object
+      properties:
+        id: 
+          type: string
+          format: uuid
+        name:
+          type: string
+        publisherId: 
+          type: string
+        offerId:
+          type: string
+        planId:
+          type: string
+        quantity:
+          type: integer
+          format: int32
+        sessionMode:
+          type: string
+          description: Dry Run indicates all transactions run as Test-Mode in the commerce stack
+          enum:
+            - "None"
+            - "DryRun"
+        isFreeTrial: 
+          type: boolean
+          description: true - the customer subscription is currently in free trial, false - the customer subscription is not currently in free trial.(optional field - default false)
+        isTest:
+          type: boolean
+          description: Indicating whether the current subscription is a test asset.
+        sandboxType:
+          type: string
+          description: Possible Values are None, Csp (Csp sandbox purchase)
+          enum:
+            - "None"
+            - "Csp"
+        saasSubscriptionStatus:
+          type: string
+          description: Indicates the status of the operation.
+          enum:
+            - "NotStarted"
+            - "PendingFulfillmentStart"
+            - "Subscribed"
+            - "Suspended"
+            - "Unsubscribed"
+        beneficiary:
+          $ref: '#/components/schemas/AadIdentifier'
+        purchaser:          
+          $ref: '#/components/schemas/AadIdentifier'
+        term:
+          type: object
+          properties:
+            startDate:
+              type: string
+              format: date
+            endDate:
+              type: string
+              format: date
+        allowedCustomerOperations:
+          type: array
+          items:
+            type: string
+            enum:
+              - "Read"
+              - "Update"
+              - "Delete"
+    AadIdentifier:
+      type: object
+      properties:
+        emailId: 
+          type: string
+          format: email
+        objectId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          format: uuid
+
+    PlansResponse:
+      type: object
+      properties:
+        subscriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Plan'
+
+    Plan:
+      type: object
+      properties:
+        planId:
+          type: string
+        displayName:
+          type: string
+        isPrivate:
+          type: boolean
+          
+    SubscriberPlan:
+      type: object
+      
+    PlanIdType:
+      type: object
+      properties:
+        planId:
+          type: string
+    
+    QuantityType:
+      type: object
+      properties:
+        quantity:
+          type: integer
+          format: int32
+    
+    StatusType:
+      type: object
+      properties:
+        planId:
+          type: string
+          enum:
+            - "Success"
+            - "Failure"
+          
+    OperationList:
+      type: array
+      items:
+        $ref: '#/components/schemas/OperationType'
+        
+    OperationType:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        activityId:
+          type: string
+          format: uuid
+        subscriptionId:
+          type: string
+          format: uuid
+        offerId:
+          type: string
+        publisherId:
+          type: string
+        planId:
+          type: string
+        quantity:
+          type: integer
+          format: int32
+        action:
+          type: string
+        timeStamp:
+          type: string
+          format: datetime
+        status:
+          type: string
