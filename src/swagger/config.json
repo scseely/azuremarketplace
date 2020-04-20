@@ -1,0 +1,9 @@
+{
+    "modelPackage": "com.microsoft.azure.marketplace",
+    "apiPackage": "com.microsoft.azure.marketplace.generated",
+    "artifactId": "azure-marketplace-client-java",
+    "groupId": "com.microsoft.azure.marketplace",
+    "artifactVersion": "0.1.0",
+    "packageCompany": "Microsoft",
+    "classname": "bar"
+}
