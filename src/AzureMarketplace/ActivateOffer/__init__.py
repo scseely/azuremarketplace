@@ -4,6 +4,7 @@ import azure.functions as func
 import os
 import sys
 sys.path.append(os.path.abspath(""))
+from Shared.EnvironmentVariables import environment_variables
 from Shared.AzureMarketplaceApi import azure_marketplace_api
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
@@ -19,8 +20,12 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
     if subscription_id:
         api = azure_marketplace_api()
-        api.activate(subscription_id, plan_id)
-        return func.HttpResponse("all is fine")
+        success = api.activate(subscription_id, plan_id)
+        if (success):
+            return func.HttpResponse("all is fine")
+        else:
+            return func.HttpResponse("this didn't work", 
+                status_code=400)
     else:
         return func.HttpResponse(
              "Please pass the authentication_token from an EasyAuth login in the request body",

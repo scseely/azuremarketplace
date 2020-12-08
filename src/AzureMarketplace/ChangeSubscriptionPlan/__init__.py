@@ -3,6 +3,7 @@ import json
 
 import azure.functions as func
 import sys
+import os
 sys.path.append(os.path.abspath(""))
 from Shared.AzureMarketplaceApi import azure_marketplace_api
 
@@ -20,8 +21,11 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     if subscription_id:
         api = azure_marketplace_api()
         retval = api.change_subscription_plan(subscription_id, plan_id)
-        json_string = json.dumps(retval, default=lambda o: o.__dict__)
-        return func.HttpResponse(json_string, mimetype='application/json')
+        if (retval == False):
+            return func.HttpResponse("Failed to update plan.",
+            status_code=500)
+        
+        return func.HttpResponse(retval, mimetype='application/json')
     else:
         return func.HttpResponse(
              "Please pass the subscription_id in the request body",

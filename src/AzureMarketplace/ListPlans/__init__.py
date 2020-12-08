@@ -19,8 +19,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     if subscription_id:
         api = azure_marketplace_api()
         retval = api.list_available_plans(subscription_id)
-        json_string = json.dumps(retval, default=lambda o: o.__dict__)
-        return func.HttpResponse(json_string, mimetype='application/json')
+        return func.HttpResponse(retval, mimetype='application/json')
     else:
         return func.HttpResponse(
              "Please pass the authentication_token from an EasyAuth login in the request body",

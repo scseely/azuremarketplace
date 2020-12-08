@@ -1,2 +1,6 @@
-azure
 azure-cosmosdb-table
+msal
+azure-core
+azure-identity
+msrest
+azuremarketplace

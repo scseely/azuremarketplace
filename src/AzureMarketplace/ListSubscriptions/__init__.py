@@ -11,6 +11,5 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
     api = azure_marketplace_api()
     retval = api.list_subscriptions()
-    json_string = json.dumps(retval, default=lambda o: o.__dict__)
-    return func.HttpResponse(json_string, mimetype='application/json')
+    return func.HttpResponse(retval, mimetype='application/json')
     

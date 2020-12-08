@@ -3,6 +3,7 @@ import json
 
 import azure.functions as func
 import sys
+import os
 sys.path.append(os.path.abspath(""))
 from Shared.AzureMarketplaceApi import azure_marketplace_api
 
