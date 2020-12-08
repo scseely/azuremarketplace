@@ -99,6 +99,7 @@ resource "azurerm_function_app" "apis" {
       support_credentials = "false"
     }
     linux_fx_version  = "DOCKER|mcr.microsoft.com/azure-functions/python:3.0-python3.8-appservice"
+    always_on = true
   }
 }
 

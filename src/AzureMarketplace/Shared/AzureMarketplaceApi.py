@@ -140,7 +140,13 @@ class azure_marketplace_api:
         json_obj = self.serializer.body(retval, 'ResolvedSubscription')
         json_string = json.dumps(json_obj, default=lambda o: o.__dict__)
         return json_string
+    
+    def resolve_to_obj(self, marketplace_token):
+        retval = self.client.fulfillment_operations.resolve(x_ms_marketplace_token=marketplace_token)
 
+        json_obj = self.serializer.body(retval, 'ResolvedSubscription')
+        return json_obj
+    
     def update_operation_status(self, subscription_id, operation_id, plan_id, quantity, status):
         updateOperation = UpdateOperation(
             plan_id=plan_id,
