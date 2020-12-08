@@ -1,5 +1,3 @@
-#!/bin/bash
-
 SETTINGS_JS_FILE='../portal/scripts/settings.js'
 rm $SETTINGS_JS_FILE
 . variables.conf
@@ -14,9 +12,10 @@ fi
 echo "Logging in"
 
 az login --service-principal -u $service_principal_client_id -p $service_principal_client_secret --tenant $azure_ad_tenant_id
+az account set -s $azure_subscription_id
 RESOURCE_GROUP=$(echo $base_name)rg
 APPID=$(echo $base_name)ai
-APPINSIGHTS_KEY=$(az monitor app-insights component show -g seelyincrg --query "[?applicationId == 'seelyincai'].instrumentationKey" --output tsv)
+APPINSIGHTS_KEY=$(az monitor app-insights component show -g $RESOURCE_GROUP --query "[?applicationId == '$APPID'].instrumentationKey" --output tsv)
 echo "Application Insights Installation key: $APPINSIGHTS_KEY"
 az logout
 
@@ -29,4 +28,4 @@ echo "window.authEnabled = true;"
 echo "window.autoLogin = true;"
 echo "window.debugging = false;"
 echo "window.requireConsent = false;"
-echo "window.instrumentationKey = \"$APPINSIGHTS_KEY\"";
+echo "window.instrumentationKey = \"$APPINSIGHTS_KEY\";"

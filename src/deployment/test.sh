@@ -1,5 +1,3 @@
-#!/bin/bash
-
 SOURCE_FOLDER='../portal/'
 DESTINATION_FOLDER='$web/'
 TERRAFORM_FILE='create-file-list.sh'

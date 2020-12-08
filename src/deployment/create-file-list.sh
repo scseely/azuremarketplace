@@ -1,10 +1,11 @@
-#!/bin/bash
-
 SOURCE_FOLDER='../portal/'
 DESTINATION_FOLDER='$web/'
 TERRAFORM_FILE='web-file-list.tf'
 EMPTY_STRING=''
-rm $TERRAFORM_FILE
+
+if [[ -f $TERRAFORM_FILE ]]; then
+    rm $TERRAFORM_FILE
+fi
 
 exec 1>>$TERRAFORM_FILE
 

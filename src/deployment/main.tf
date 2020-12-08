@@ -1,10 +1,13 @@
 # Configure the provider
+
 provider "azurerm" {
-    version = "=1.36"
+    version         = "=2.0.0"
     subscription_id = var.azure_subscription_id
     client_id       = var.service_principal_client_id
     client_secret   = var.service_principal_client_secret
-    tenant_id       = var.azure_ad_tenant_id   
+    tenant_id       = var.azure_ad_tenant_id 
+    skip_provider_registration = true
+    features{}
 }
 
 # Create a new resource group
@@ -70,7 +73,7 @@ resource "azurerm_function_app" "apis" {
   app_service_plan_id       = azurerm_app_service_plan.app_service_plan.id
   storage_connection_string = azurerm_storage_account.az_backend.primary_connection_string
   https_only                = false
-  version                   = "~2"
+  version                   = "~3"
   app_settings = {
     APPINSIGHTS_INSTRUMENTATIONKEY  = azurerm_application_insights.ai.instrumentation_key
     BUILD_FLAGS                     = "UseExpressBuild"
@@ -90,12 +93,12 @@ resource "azurerm_function_app" "apis" {
   site_config {
     cors { 
       allowed_origins     = ["http://localhost:63342",
-                             "https://seelyincstg.blob.core.windows.net",
+                             "https://${var.base_name}stg.blob.core.windows.net",
                              "https://portal.${var.domain_name}",
                              "https://${var.base_name}portal.azureedge.net"]
       support_credentials = "false"
     }
-    linux_fx_version  = "DOCKER|mcr.microsoft.com/azure-functions/python:2.0-python3.6-appservice"
+    linux_fx_version  = "DOCKER|mcr.microsoft.com/azure-functions/python:3.0-python3.8-appservice"
   }
 }
 

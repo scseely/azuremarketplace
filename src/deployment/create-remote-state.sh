@@ -1,5 +1,3 @@
-#!/bin/bash
-
 TERRAFORM_FILE='remote-state.tf'
 rm $TERRAFORM_FILE
 
